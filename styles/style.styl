@@ -38,10 +38,30 @@ p {
   &.space {
     padding: 15px 0;
   }
+
+  &.toggle {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
+
+  li.soon {
+    color: #b3b3b3;
+  }
+
+  &#travel {
+    display: none;
+
+    &.open {
+      display: block;
+    }
+  }
 }
