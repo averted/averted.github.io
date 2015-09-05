@@ -1,9 +1,10 @@
 @import 'fonts.css'
 
 body {
-  font-family: 'Hack', monospace;
+  color: #333;
+  padding: 25px;
   font-size: 18px;
-  padding: 20px;
+  font-family: 'Hack', monospace;
 }
 
 h1 {
@@ -13,9 +14,30 @@ h1 {
   margin: 0;
 }
 
+a {
+  color: #333;
+  text-decoration: none;
+
+  &:hover {
+    background: #ddd;
+  }
+
+  &:visited {
+    color: #333;
+  }
+
+  &:active {
+    color: #333;
+  }
+}
+
 p {
   margin: 0;
   padding: 0;
+
+  &.space {
+    padding: 15px 0;
+  }
 }
 
 ul {
