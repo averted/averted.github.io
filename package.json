@@ -1,0 +1,19 @@
+{
+  "name": "averted.github.io",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/averted/averted.github.io.git"
+  },
+  "author": {
+    "name": "Alexander Vitiuk",
+    "url": "http://averted.github.io/"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-stylus": "^2.0.6"
+  }
+}
