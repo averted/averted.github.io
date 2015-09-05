@@ -25,8 +25,8 @@ var LIST = [
 
   // populate travel list
   for (var i = 0; i < LIST.length; i++) {
-    var li = document.createElement('li');
-    var node = LIST[i];
+    var li   = document.createElement('li')
+      , node = LIST[i];
 
     li.innerHTML = node.name;
     li.className = node.visited ? '' : 'soon';
