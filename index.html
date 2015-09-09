@@ -15,23 +15,32 @@
     <p>Front End Developer</p>
 
     <p class="space"></p>
-    <p>Now: &nbsp;<a href="http://www.pressly.com" target="_blank">Pressly Inc.</a></p>
-    <p>Past: <a href="http://www.salesways.com" target="_blank">SalesWays Inc.</a></p>
+    <p id="js-now">Now: &nbsp;<a href="http://www.pressly.com" target="_blank">Pressly Inc.</a></p>
+    <p id="js-past">Past: <a href="http://www.salesways.com" target="_blank">SalesWays Inc.</a></p>
 
     <p class="space"></p>
     <p>Location: Toronto, CA</p>
 
     <p class="space"></p>
     <ul>
-      <li>GitHub: <a href="http://www.github.com/averted" target="_blank">averted</a></li>
-      <li>Email: <a href="mailto:vitiuk.alex@gmail.com">vitiuk.alex@gmail.com</a></li>
+      <li id="js-github">GitHub: <a href="http://www.github.com/averted" target="_blank">averted</a></li>
+      <li id="js-email">Email: <a href="mailto:vitiuk.alex@gmail.com">vitiuk.alex@gmail.com</a></li>
     </ul>
 
     <p class="space"></p>
-    <p class="toggle">Travel List <span>+</span></p>
+    <p id="js-travel" class="toggle">Travel List <span>+</span></p>
 
     <ul id="travel"></ul>
 
     <script type="text/javascript" src="js/build.js"></script>
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-42370204-3', 'auto');
+      ga('send', 'pageview');
+    </script>
   </body>
 </html>
