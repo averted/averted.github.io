@@ -8,10 +8,12 @@
   ];
 
   for (var i = 0; i < nodes.length; i++) {
-    var node = document.getElementById(nodes[i].id);
+    (function() {
+      var node = document.getElementById(nodes[i].id);
 
-    node.addEventListener('click', function() {
-      ga("send", "event", "button", "click", nodes[i].name);
-    });
+      node.addEventListener('click', function() {
+        ga("send", "event", "button", "click", nodes[i].name);
+      });
+    })();
   }
 })();
