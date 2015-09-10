@@ -56,12 +56,23 @@ ul {
   li.soon {
     color: #b3b3b3;
   }
+}
 
-  &#travel {
-    display: none;
+#travel {
+  display: none;
 
-    &.open {
-      display: block;
+  ul {
+    display: inline-block;
+    width: 220px;
+    margin-top: 30px;
+    vertical-align: top;
+
+    li.title {
+      margin: 0 0 8px 0;
     }
+  }
+
+  &.open {
+    display: block;
   }
 }
