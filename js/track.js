@@ -9,10 +9,11 @@
 
   for (var i = 0; i < nodes.length; i++) {
     (function() {
-      var node = document.getElementById(nodes[i].id);
+      var node = document.getElementById(nodes[i].id)
+        , name = nodes[i].name;
 
       node.addEventListener('click', function() {
-        ga("send", "event", "button", "click", nodes[i].name);
+        ga("send", "event", "button", "click", name);
       });
     })();
   }
