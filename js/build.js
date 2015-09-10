@@ -1,11 +1,68 @@
-var LIST = [
-  { name: 'Canada',     visited: true },
-  { name: 'Australia',  visited: true },
-  { name: 'Hawaii',     visited: false },
-  { name: 'Peru',       visited: true },
-  { name: 'Ukraine',    visited: true },
-  { name: 'Norway',     visited: false },
-  { name: 'Sweden',     visited: false },
+var COUNTRIES = [
+  {
+    name: 'Canada',
+    visited: true,
+    cities: [
+      { name: 'Toronto', visited: true },
+      { name: 'Montreal', visited: true },
+      { name: 'Ottawa', visited: false },
+      { name: 'Banff', visited: false },
+      { name: 'Vancouver', visited: false },
+    ]
+  },
+  {
+    name: 'Australia',
+    visited: true,
+    cities: [
+      { name: 'Brisbane', visited: true },
+      { name: 'Cairns', visited: true },
+      { name: 'Alice Springs', visited: false },
+      { name: 'Darwin', visited: true },
+      { name: 'Sydney', visited: false },
+      { name: 'Melbourne', visited: true },
+      { name: 'Perth', visited: false },
+    ]
+  },
+  {
+    name: 'USA',
+    visited: false,
+    cities: [
+      { name: 'Chicago', visited: true },
+      { name: 'New York', visited: true },
+      { name: 'Washington', visited: false },
+      { name: 'San Francisco', visited: false },
+      { name: 'Los Angeles', visited: false },
+    ]
+  },
+  {
+    name: 'Peru',
+    visited: true,
+    cities: [
+      { name: 'Arequipa', visited: true },
+      { name: 'Macchu Picchu', visited: true },
+      { name: 'Cusco', visited: true },
+      { name: 'Puno', visited: true },
+      { name: 'Lima', visited: false },
+    ]
+  },
+  {
+    name: 'Ukraine',
+    visited: true,
+    cities: [
+      { name: 'Kiev', visited: true },
+      { name: 'Odessa', visited: true },
+      { name: 'Lviv', visited: false },
+    ]
+  },
+  {
+    name: 'Norway',
+    visited: false,
+    cities: [
+      { name: 'Oslo', visited: false },
+      { name: 'Trolltunga', visited: false },
+      { name: 'Bergen', visited: false },
+    ]
+  },
 ].sort(function(a, b) {
   return a.name > b.name;
 });
@@ -15,7 +72,7 @@ var LIST = [
     , toggle = document.getElementsByClassName('toggle')[0]
     , travel = document.getElementById('travel')
 
-  // handle toggle
+  // toggle listener
   toggle.addEventListener('click', function() {
     this.opened = !this.opened;
 
@@ -23,14 +80,27 @@ var LIST = [
     toggle.children[0].innerHTML = this.opened ? '-' : '+';
   });
 
-  // populate travel list
-  for (var i = 0; i < LIST.length; i++) {
-    var li   = document.createElement('li')
-      , node = LIST[i];
+  // countries
+  for (var i = 0; i < COUNTRIES.length; i++) {
+    var ul = document.createElement('ul')
+      , title = document.createElement('li')
+      , node = COUNTRIES[i];
 
-    li.innerHTML = node.name;
-    li.className = node.visited ? '' : 'soon';
+    title.innerHTML = node.name;
+    title.className = 'title';
+    ul.appendChild(title);
 
-    travel.appendChild(li);
+    // cities
+    for (var j = 0; j < node.cities.sort(function(a, b) { return a.name > b.name }).length; j++) {
+      var li = document.createElement('li')
+        , city = node.cities[j];
+
+      li.innerHTML = '&#45;&nbsp;' + city.name;
+      li.className = city.visited ? '' : 'soon';
+
+      ul.appendChild(li);
+    }
+
+    travel.appendChild(ul);
   }
 })();
