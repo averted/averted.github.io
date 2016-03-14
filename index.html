@@ -43,5 +43,22 @@
       ga('send', 'pageview');
     </script>
     <script type="text/javascript" src="js/track.js"></script>
+
+    <div id="pxEmbedContainer"></div>
+    <script src="//cdn.pressly.com/embeds/modal/px-embed.js"></script>
+    <script type="text/javascript">
+      new PresslyEmbed({
+        hubId:        706,
+        collectionId: null,
+        bgColor:      "white",
+        showCollaboratorHeader: false,
+        pagingMode: "carousel",
+        perPage:  5,
+        inlineSpotlight: true,
+        autoPageDuration: 5000,
+        showSocialShare: true,
+        elementId: "pxEmbedContainer",
+      });
+    </script>
   </body>
 </html>
