@@ -39,7 +39,7 @@ var COUNTRIES = [
     visited: true,
     cities: [
       { name: 'Arequipa', visited: true },
-      { name: 'Macchu Picchu', visited: true },
+      { name: 'Machu Picchu', visited: true },
       { name: 'Cusco', visited: true },
       { name: 'Puno', visited: true },
       { name: 'Lima', visited: false },
