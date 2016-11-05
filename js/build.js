@@ -46,12 +46,15 @@ var COUNTRIES = [
     ]
   },
   {
-    name: 'Ukraine',
+    name: 'Europe',
     visited: true,
     cities: [
-      { name: 'Kiev', visited: true },
-      { name: 'Odessa', visited: true },
-      { name: 'Lviv', visited: false },
+      { name: 'Amsterdam', visited: false },
+      { name: 'Rome', visited: true },
+      { name: 'Paris', visited: true },
+      { name: 'London', visited: true },
+      { name: 'Prague', visited: false },
+      { name: 'Munich', visited: false },
     ]
   },
   {
