@@ -13,7 +13,11 @@
         , name = nodes[i].name;
 
       node.addEventListener('click', function() {
-        ga("send", "event", "button", "click", name);
+        ga('send', 'event', 'button', 'click', name);
+      });
+
+      node.addEventListener('mouseover', function() {
+        ga('send', 'event', 'button', 'mouseover', name);
       });
     })();
   }
