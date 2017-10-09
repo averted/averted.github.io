@@ -5,7 +5,7 @@ var COUNTRIES = [
     cities: [
       { name: 'Toronto', visited: true },
       { name: 'Montreal', visited: true },
-      { name: 'Ottawa', visited: false },
+      { name: 'Ottawa', visited: true },
       { name: 'Banff', visited: false },
       { name: 'Vancouver', visited: false },
     ]
@@ -32,6 +32,9 @@ var COUNTRIES = [
       { name: 'Washington', visited: false },
       { name: 'San Francisco', visited: false },
       { name: 'Los Angeles', visited: false },
+      { name: 'Nashville', visited: true },
+      { name: 'Cincinnati', visited: true },
+      { name: 'Red River Gorge', visited: true },
     ]
   },
   {
@@ -87,16 +90,17 @@ var COUNTRIES = [
   for (var i = 0; i < COUNTRIES.length; i++) {
     var ul = document.createElement('ul')
       , title = document.createElement('li')
-      , node = COUNTRIES[i];
+      , country = COUNTRIES[i]
+      , cities = country.cities.sort(function(a, b) { return a.name > b.name })
 
-    title.innerHTML = node.name;
+    title.innerHTML = country.name;
     title.className = 'title';
     ul.appendChild(title);
 
     // cities
-    for (var j = 0; j < node.cities.sort(function(a, b) { return a.name > b.name }).length; j++) {
+    for (var j = 0; j < cities.length; j++) {
       var li = document.createElement('li')
-        , city = node.cities[j];
+        , city = country.cities[j];
 
       li.innerHTML = '&#45;&nbsp;' + city.name;
       li.className = city.visited ? '' : 'soon';
