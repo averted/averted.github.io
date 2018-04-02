@@ -16,6 +16,7 @@ h1 {
 
 a {
   color: #333;
+  font-weight: 600;
   text-decoration: none;
 
   &:hover {
@@ -40,11 +41,17 @@ p {
   }
 
   &.toggle {
+    display: inline-block;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    font-weight: 600;
+
+    &:hover {
+      background-color: #ddd;
+    }
   }
 }
 
