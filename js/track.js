@@ -5,6 +5,8 @@
     { id: 'js-github', name: 'GitHub' },
     { id: 'js-email',  name: 'Email' },
     { id: 'js-travel', name: 'Travel' },
+    { id: 'js-sportling', name: 'Sportling' },
+    { id: 'js-climbee', name: 'Climbee' },
   ];
 
   for (var i = 0; i < nodes.length; i++) {
