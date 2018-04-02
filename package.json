@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/averted/averted.github.io.git"
   },
+  "scripts": {
+    "build": "gulp"
+  },
   "author": {
     "name": "Alexander Vitiuk",
     "url": "http://averted.github.io/"
