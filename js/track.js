@@ -7,6 +7,7 @@
     { id: 'js-travel', name: 'Travel' },
     { id: 'js-sportling', name: 'Sportling' },
     { id: 'js-climbee', name: 'Climbee' },
+    { id: 'js-sf-muni', name: 'SF Muni' },
   ];
 
   for (var i = 0; i < nodes.length; i++) {
