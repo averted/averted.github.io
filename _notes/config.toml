@@ -1,0 +1,8 @@
+baseURL = "https://averted.github.io/notes"
+languageCode = "en-us"
+title = "Notes"
+theme = "book"
+publishdir = "../notes"
+
+[params]
+  BookSection = "*"

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://averted.github.io/notes/vim/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/git/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/bash/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/js/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/bash/files/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/bash/networking/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/git/all/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/js/example/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/vim/buffers/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/bash/postgres/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/tags/</loc>
+  </url>
+  
+</urlset>
