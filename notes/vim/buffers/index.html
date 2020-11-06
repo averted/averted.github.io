@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Navigation #  Navigate through buffers:
-:next | :n | ]] :prev | :p | [[  Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .)  Search and replace multiple files #  Open multiple files into buffers:
-vim ./*.js  run:
-:bufdo %s/pattern/replace/ge [| update]  update flag is optional if you have &lsquo;set hidden&rsquo; vim flag enabled.
+:next | :n | ]] :prev | :p | [[ Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .) Search and replace multiple files #  Open multiple files into buffers:
+vim ./*.js run:
+:bufdo %s/pattern/replace/ge [| update] update flag is optional if you have &lsquo;set hidden&rsquo; vim flag enabled.
 The same can be accomplished with arglist without loading files into buffers.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
 <meta property="og:description" content="Navigation #  Navigate through buffers:
-:next | :n | ]] :prev | :p | [[  Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .)  Search and replace multiple files #  Open multiple files into buffers:
-vim ./*.js  run:
-:bufdo %s/pattern/replace/ge [| update]  update flag is optional if you have &lsquo;set hidden&rsquo; vim flag enabled.
+:next | :n | ]] :prev | :p | [[ Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .) Search and replace multiple files #  Open multiple files into buffers:
+vim ./*.js run:
+:bufdo %s/pattern/replace/ge [| update] update flag is optional if you have &lsquo;set hidden&rsquo; vim flag enabled.
 The same can be accomplished with arglist without loading files into buffers." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://averted.github.io/notes/vim/buffers/" />
@@ -21,8 +21,8 @@ The same can be accomplished with arglist without loading files into buffers." /
 <title>Buffers | Notes</title>
 <link rel="manifest" href="/notes/manifest.json">
 <link rel="icon" href="/notes/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/notes/book.min.134b70e5316650a530cb42e4e8630b2a01d532bebfc0337028211175336e4806.css" integrity="sha256-E0tw5TFmUKUwy0Lk6GMLKgHVMr6/wDNwKCERdTNuSAY=">
-<script defer src="/notes/en.search.min.f60e5f50eae6ef3830b408b59b993cb7c1034e33e91910a038211a139a3cfc35.js" integrity="sha256-9g5fUOrm7zgwtAi1m5k8t8EDTjPpGRCgOCEaE5o8/DU="></script>
+<link rel="stylesheet" href="/notes/book.min.525b62cc59c40c7cc41b0d8b36a0163657cb4419334e5ee03f3a787fa6f00325.css" integrity="sha256-UltizFnEDHzEGw2LNqAWNlfLRBkzTl7gPzp4f6bwAyU=">
+<script defer src="/notes/en.search.min.d74ae9b301465c2792a084c6f7ba6b520f4479b45d7735a1c8698250a6a24118.js" integrity="sha256-10rpswFGXCeSoITG97prUg9EebRddzWhyGmCUKaiQRg="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -76,37 +76,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <span>Vim</span>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://averted.github.io/notes/vim/buffers/" class=" active">Buffers</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li class="book-section-flat" >
-          
-  
-  
-
-  
     <span>Git</span>
   
 
@@ -138,7 +107,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <span>Bash</span>
+    <span>Vim</span>
   
 
           
@@ -151,7 +120,38 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://averted.github.io/notes/bash/files/" class="">Files</a>
+    <a href="https://averted.github.io/notes/vim/buffers/" class=" active">Buffers</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Shell</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/shell/files/" class="">Files</a>
   
 
         </li>
@@ -164,7 +164,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://averted.github.io/notes/bash/networking/" class="">Networking</a>
+    <a href="https://averted.github.io/notes/shell/networking/" class="">Networking</a>
   
 
         </li>
@@ -177,7 +177,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://averted.github.io/notes/bash/postgres/" class="">Postgres</a>
+    <a href="https://averted.github.io/notes/shell/postgres/" class="">Postgres</a>
   
 
         </li>
@@ -208,7 +208,20 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://averted.github.io/notes/js/example/" class="">Example</a>
+    <a href="https://averted.github.io/notes/js/classes/" class="">Classes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/js/iterators/" class="">Iterators / Generators</a>
   
 
         </li>
@@ -290,32 +303,26 @@ https://github.com/alex-shpak/hugo-book
 <p>Navigate through buffers:</p>
 <pre><code>:next | :n | ]]
 :prev | :p | [[
-</code></pre>
-<h2 id="open-all-files-returned-from-grep">
+</code></pre><h2 id="open-all-files-returned-from-grep">
   Open all files returned from <code>grep</code>
   <a class="anchor" href="#open-all-files-returned-from-grep">#</a>
 </h2>
 <pre><code>vim $(grep -lri 'pattern' .)
-</code></pre>
-<h2 id="search-and-replace-multiple-files">
+</code></pre><h2 id="search-and-replace-multiple-files">
   Search and replace multiple files
   <a class="anchor" href="#search-and-replace-multiple-files">#</a>
 </h2>
 <p>Open multiple files into buffers:</p>
 <pre><code>vim ./*.js
-</code></pre>
-<p>run:</p>
+</code></pre><p>run:</p>
 <pre><code>:bufdo %s/pattern/replace/ge  [| update]
-</code></pre>
-<p><code>update</code> flag is optional if you have &lsquo;set hidden&rsquo; vim flag enabled.</p>
+</code></pre><p><code>update</code> flag is optional if you have &lsquo;set hidden&rsquo; vim flag enabled.</p>
 <p>The same can be accomplished with <code>arglist</code> without loading files into buffers.</p>
 <p>First add files to <code>arglist</code>:</p>
 <pre><code>:argadd *.js
-</code></pre>
-<p>Then replace with:</p>
+</code></pre><p>Then replace with:</p>
 <pre><code>:argdo %s/foo/bar/ge
-</code></pre>
-</article>
+</code></pre></article>
  
       
 

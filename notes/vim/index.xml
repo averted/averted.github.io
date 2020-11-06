@@ -13,9 +13,9 @@
       
       <guid>https://averted.github.io/notes/vim/buffers/</guid>
       <description>Navigation #  Navigate through buffers:
-:next | :n | ]] :prev | :p | [[  Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .)  Search and replace multiple files #  Open multiple files into buffers:
-vim ./*.js  run:
-:bufdo %s/pattern/replace/ge [| update]  update flag is optional if you have &amp;lsquo;set hidden&amp;rsquo; vim flag enabled.
+:next | :n | ]] :prev | :p | [[ Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .) Search and replace multiple files #  Open multiple files into buffers:
+vim ./*.js run:
+:bufdo %s/pattern/replace/ge [| update] update flag is optional if you have &amp;lsquo;set hidden&amp;rsquo; vim flag enabled.
 The same can be accomplished with arglist without loading files into buffers.</description>
     </item>
     

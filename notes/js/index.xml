@@ -8,11 +8,20 @@
     <language>en-us</language><atom:link href="https://averted.github.io/notes/js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://averted.github.io/notes/js/example/</link>
+      <link>https://averted.github.io/notes/js/classes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://averted.github.io/notes/js/example/</guid>
-      <description>Example #  </description>
+      <guid>https://averted.github.io/notes/js/classes/</guid>
+      <description>Classes #  Overview #   Class declarations, unlike functions, are not hoisted All methods are nonenumerable Calling class constructor without new throws an error (new.target always exists)  Classes as First-Class Citizens #  A first-class citizen is a value that can be passed into a function, returned from a function, and assigned to a variable. Every JS Function is a first-class citizen, and Classes are as well (can be passed around as arguments inside a fn).</description>
+    </item>
+    
+    <item>
+      <title>Iterators / Generators</title>
+      <link>https://averted.github.io/notes/js/iterators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/js/iterators/</guid>
+      <description>Iterators &amp;amp; Generators #  Iterators #  Iterators are objects with a specific interface designed for iteration. All iterator objects have a next() method that returns a result object. The result object has two proerties: value, which is the next value, and done, which is a Boolean that&amp;rsquo;s true when there are no more values to return. The iterator keeps an internal pointer to a location within a collection of values, and with each call to the next() method it returns the next appropriate value.</description>
     </item>
     
   </channel>

@@ -8,48 +8,48 @@
     <language>en-us</language><atom:link href="https://averted.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://averted.github.io/notes/bash/files/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://averted.github.io/notes/bash/files/</guid>
-      <description>August 1, 2018
- Chmod #  Default permission:
-chmod 755 # DIR -rwxr-xr-x chmod 644 # FILE -rw-r--r--  Change all directories to 755:
-find . -type d -exec chmod 755 {} \;  Change all files to 644 under current directory:
-find . -type f -exec chmod 644 {} \;  Rename Multiple #  for i in *.js; do mv &amp;quot;$i&amp;quot; &amp;quot;./${i/pattern/replace}&amp;quot;; done  Example:
-Rename list of files from: ic-one.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://averted.github.io/notes/bash/networking/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://averted.github.io/notes/bash/networking/</guid>
-      <description>December 12, 2020
- WiFi #  Turn off IPv6 on Mac OS:
-networksetup -setv6off Wi-Fi  </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://averted.github.io/notes/git/all/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://averted.github.io/notes/git/all/</guid>
       <description>Jan 12, 2014
  Restore Version #  Restore a version of a file to the one before commit h0a0s0h (~1 for 1 above version):
-git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore  Checkout from specific branch #  Example - if your current branch is feature/123, and you&amp;rsquo;re rebasing it on top of master:
-git checkout feature/123 git rebase master  and run into conflicts on some file (src/some/file.js), you can revert this file to master&amp;rsquo;s version with:</description>
+git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore Checkout from specific branch #  Example - if your current branch is feature/123, and you&amp;rsquo;re rebasing it on top of master:
+git checkout feature/123 git rebase master and run into conflicts on some file (src/some/file.js), you can revert this file to master&amp;rsquo;s version with:</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://averted.github.io/notes/js/example/</link>
+      <link>https://averted.github.io/notes/js/classes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://averted.github.io/notes/js/example/</guid>
-      <description>Example #  </description>
+      <guid>https://averted.github.io/notes/js/classes/</guid>
+      <description>Classes #  Overview #   Class declarations, unlike functions, are not hoisted All methods are nonenumerable Calling class constructor without new throws an error (new.target always exists)  Classes as First-Class Citizens #  A first-class citizen is a value that can be passed into a function, returned from a function, and assigned to a variable. Every JS Function is a first-class citizen, and Classes are as well (can be passed around as arguments inside a fn).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://averted.github.io/notes/shell/files/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/shell/files/</guid>
+      <description>August 1, 2018
+ Chmod #  Default permission:
+chmod 755 # DIR -rwxr-xr-x chmod 644 # FILE -rw-r--r-- Change all directories to 755:
+find . -type d -exec chmod 755 {} \; Change all files to 644 under current directory:
+find . -type f -exec chmod 644 {} \; Rename Multiple #  for i in *.js; do mv &amp;quot;$i&amp;quot; &amp;quot;./${i/pattern/replace}&amp;quot;; done Example:
+Rename list of files from: ic-one.svg -&amp;gt; one.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://averted.github.io/notes/shell/networking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/shell/networking/</guid>
+      <description>December 12, 2020
+ WiFi #  Turn off IPv6 on Mac OS:
+networksetup -setv6off Wi-Fi </description>
     </item>
     
     <item>
@@ -59,20 +59,29 @@ git checkout feature/123 git rebase master  and run into conflicts on some file 
       
       <guid>https://averted.github.io/notes/vim/buffers/</guid>
       <description>Navigation #  Navigate through buffers:
-:next | :n | ]] :prev | :p | [[  Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .)  Search and replace multiple files #  Open multiple files into buffers:
-vim ./*.js  run:
-:bufdo %s/pattern/replace/ge [| update]  update flag is optional if you have &amp;lsquo;set hidden&amp;rsquo; vim flag enabled.
+:next | :n | ]] :prev | :p | [[ Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .) Search and replace multiple files #  Open multiple files into buffers:
+vim ./*.js run:
+:bufdo %s/pattern/replace/ge [| update] update flag is optional if you have &amp;lsquo;set hidden&amp;rsquo; vim flag enabled.
 The same can be accomplished with arglist without loading files into buffers.</description>
     </item>
     
     <item>
-      <title>Postgres</title>
-      <link>https://averted.github.io/notes/bash/postgres/</link>
+      <title>Iterators / Generators</title>
+      <link>https://averted.github.io/notes/js/iterators/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://averted.github.io/notes/bash/postgres/</guid>
+      <guid>https://averted.github.io/notes/js/iterators/</guid>
+      <description>Iterators &amp;amp; Generators #  Iterators #  Iterators are objects with a specific interface designed for iteration. All iterator objects have a next() method that returns a result object. The result object has two proerties: value, which is the next value, and done, which is a Boolean that&amp;rsquo;s true when there are no more values to return. The iterator keeps an internal pointer to a location within a collection of values, and with each call to the next() method it returns the next appropriate value.</description>
+    </item>
+    
+    <item>
+      <title>Postgres</title>
+      <link>https://averted.github.io/notes/shell/postgres/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/shell/postgres/</guid>
       <description>December 12, 2018
- Connect #  psql -hlocalhost -Uusername -W -ddatabasename  </description>
+ Connect #  psql -hlocalhost -Uusername -W -ddatabasename </description>
     </item>
     
   </channel>

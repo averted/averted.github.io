@@ -1,3 +1,28 @@
 /* You can add custom styles here. */
 
 // @import "plugins/numbered";
+
+h1, h2, h3 {
+  color: #000;
+}
+
+nav {
+  color: #5e6d6f;
+
+  span {
+    color: #000;
+  }
+}
+
+code {
+  font-family: "Hack", "roboto mono", monospace;
+}
+
+.markdown pre {
+  padding: 10px;
+  line-height: 18px;
+}
+
+.book-menu a.active {
+  font-weight: 600;
+}

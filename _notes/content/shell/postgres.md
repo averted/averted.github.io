@@ -6,4 +6,6 @@ December 12, 2018
 ___
 
 ## Connect
-    psql -hlocalhost -Uusername -W -ddatabasename
+```
+psql -hlocalhost -Uusername -W -ddatabasename
+```

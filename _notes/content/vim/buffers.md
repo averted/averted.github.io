@@ -1,20 +1,28 @@
 ## Navigation
 Navigate through buffers:
 
-	:next | :n | ]]
-	:prev | :p | [[
+```
+:next | :n | ]]
+:prev | :p | [[
+```
 
 ## Open all files returned from `grep`
-	vim $(grep -lri 'pattern' .)
+```
+vim $(grep -lri 'pattern' .)
+```
 
 ## Search and replace multiple files
 Open multiple files into buffers:
 
-	vim ./*.js
+```
+vim ./*.js
+```
 
 run:
 
-	:bufdo %s/pattern/replace/ge  [| update]
+```
+:bufdo %s/pattern/replace/ge  [| update]
+```
 
 `update` flag is optional if you have 'set hidden' vim flag enabled.
 
@@ -22,8 +30,12 @@ The same can be accomplished with `arglist` without loading files into buffers.
 
 First add files to `arglist`:
 
-	:argadd *.js
+```
+:argadd *.js
+```
 
 Then replace with:
 
-	:argdo %s/foo/bar/ge
+```
+:argdo %s/foo/bar/ge
+```

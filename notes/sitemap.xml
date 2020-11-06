@@ -3,15 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://averted.github.io/notes/vim/</loc>
-  </url>
-  
-  <url>
     <loc>https://averted.github.io/notes/git/</loc>
   </url>
   
   <url>
-    <loc>https://averted.github.io/notes/bash/</loc>
+    <loc>https://averted.github.io/notes/vim/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/shell/</loc>
   </url>
   
   <url>
@@ -19,19 +19,19 @@
   </url>
   
   <url>
-    <loc>https://averted.github.io/notes/bash/files/</loc>
-  </url>
-  
-  <url>
-    <loc>https://averted.github.io/notes/bash/networking/</loc>
-  </url>
-  
-  <url>
     <loc>https://averted.github.io/notes/git/all/</loc>
   </url>
   
   <url>
-    <loc>https://averted.github.io/notes/js/example/</loc>
+    <loc>https://averted.github.io/notes/js/classes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/shell/files/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/shell/networking/</loc>
   </url>
   
   <url>
@@ -47,7 +47,11 @@
   </url>
   
   <url>
-    <loc>https://averted.github.io/notes/bash/postgres/</loc>
+    <loc>https://averted.github.io/notes/js/iterators/</loc>
+  </url>
+  
+  <url>
+    <loc>https://averted.github.io/notes/shell/postgres/</loc>
   </url>
   
   <url>

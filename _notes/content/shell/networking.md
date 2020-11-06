@@ -4,5 +4,6 @@ ___
 ## WiFi
 
 Turn off IPv6 on Mac OS:
-
-	networksetup -setv6off Wi-Fi
+```
+networksetup -setv6off Wi-Fi
+```
