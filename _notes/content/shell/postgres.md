@@ -9,3 +9,8 @@ ___
 ```
 psql -hlocalhost -Uusername -W -ddatabasename
 ```
+
+## Dump
+```
+pg_dump -hlocalhost -Upostgres dbname > ~/dump.sql
+```
