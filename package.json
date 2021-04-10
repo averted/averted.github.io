@@ -8,7 +8,9 @@
     "url": "git+https://github.com/averted/averted.github.io.git"
   },
   "scripts": {
-    "build": "gulp"
+    "build": "gulp",
+    "notes:start": "cd ./_notes && hugo server -D",
+    "notes:build": "cd ./_notes && hugo -D"
   },
   "author": {
     "name": "Alexander Vitiuk",

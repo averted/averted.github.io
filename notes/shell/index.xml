@@ -38,7 +38,7 @@ networksetup -setv6off Wi-Fi </description>
       
       <guid>https://averted.github.io/notes/shell/postgres/</guid>
       <description>December 12, 2018
- Connect #  psql -hlocalhost -Uusername -W -ddatabasename </description>
+ Connect #  psql -hlocalhost -Uusername -W -ddatabasename Dump #  pg_dump -hlocalhost -Upostgres dbname &amp;gt; ~/dump.sql </description>
     </item>
     
   </channel>

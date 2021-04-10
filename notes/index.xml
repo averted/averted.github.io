@@ -8,6 +8,16 @@
     <language>en-us</language><atom:link href="https://averted.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
+      <link>https://averted.github.io/notes/dom/query-params/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/dom/query-params/</guid>
+      <description>Extract query string params (replace qs?) #  Assuming current URL is: ?post=1234&amp;amp;action=edit
+var urlParams = new URLSearchParams(window.location.search); console.log(urlParams.has(&amp;#39;post&amp;#39;)); // true console.log(urlParams.get(&amp;#39;action&amp;#39;)); // &amp;#34;edit&amp;#34; console.log(urlParams.getAll(&amp;#39;action&amp;#39;)); // [&amp;#34;edit&amp;#34;] console.log(urlParams.toString()); // &amp;#34;?post=1234&amp;amp;action=edit&amp;#34; console.log(urlParams.append(&amp;#39;active&amp;#39;, &amp;#39;1&amp;#39;)); // &amp;#34;?post=1234&amp;amp;action=edit&amp;amp;active=1&amp;#34; </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://averted.github.io/notes/git/all/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -25,6 +35,15 @@ git checkout feature/123 git rebase master and run into conflicts on some file (
       
       <guid>https://averted.github.io/notes/js/classes/</guid>
       <description>Classes #  Overview #   Class declarations, unlike functions, are not hoisted All methods are nonenumerable Calling class constructor without new throws an error (new.target always exists)  Classes as First-Class Citizens #  A first-class citizen is a value that can be passed into a function, returned from a function, and assigned to a variable. Every JS Function is a first-class citizen, and Classes are as well (can be passed around as arguments inside a fn).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://averted.github.io/notes/osx/all/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/osx/all/</guid>
+      <description>TN2450 (Remapping Keys) #  https://developer.apple.com/library/archive/technotes/tn2450/_index.html</description>
     </item>
     
     <item>
@@ -81,7 +100,7 @@ The same can be accomplished with arglist without loading files into buffers.</d
       
       <guid>https://averted.github.io/notes/shell/postgres/</guid>
       <description>December 12, 2018
- Connect #  psql -hlocalhost -Uusername -W -ddatabasename </description>
+ Connect #  psql -hlocalhost -Uusername -W -ddatabasename Dump #  pg_dump -hlocalhost -Upostgres dbname &amp;gt; ~/dump.sql </description>
     </item>
     
   </channel>
