@@ -8,24 +8,27 @@
     <language>en-us</language><atom:link href="https://averted.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://averted.github.io/notes/dom/query-params/</link>
+      <link>https://averted.github.io/notes/dev/git/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://averted.github.io/notes/dom/query-params/</guid>
-      <description>Extract query string params (replace qs?) #  Assuming current URL is: ?post=1234&amp;amp;action=edit
-var urlParams = new URLSearchParams(window.location.search); console.log(urlParams.has(&amp;#39;post&amp;#39;)); // true console.log(urlParams.get(&amp;#39;action&amp;#39;)); // &amp;#34;edit&amp;#34; console.log(urlParams.getAll(&amp;#39;action&amp;#39;)); // [&amp;#34;edit&amp;#34;] console.log(urlParams.toString()); // &amp;#34;?post=1234&amp;amp;action=edit&amp;#34; console.log(urlParams.append(&amp;#39;active&amp;#39;, &amp;#39;1&amp;#39;)); // &amp;#34;?post=1234&amp;amp;action=edit&amp;amp;active=1&amp;#34; </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://averted.github.io/notes/git/all/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://averted.github.io/notes/git/all/</guid>
+      <guid>https://averted.github.io/notes/dev/git/</guid>
       <description>Jan 12, 2014
  Restore Version #  Restore a version of a file to the one before commit h0a0s0h (~1 for 1 above version):
 git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore Checkout from specific branch #  Example - if your current branch is feature/123, and you&amp;rsquo;re rebasing it on top of master:
 git checkout feature/123 git rebase master and run into conflicts on some file (src/some/file.js), you can revert this file to master&amp;rsquo;s version with:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://averted.github.io/notes/dev/vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/dev/vim/</guid>
+      <description>Buffers #  Navigation #  Navigate through buffers:
+:next | :n | ]] :prev | :p | [[ Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .) Search and replace multiple files #  Open multiple files into buffers:
+vim ./*.js run:
+:bufdo %s/pattern/replace/ge [| update] update flag is optional if you have &amp;lsquo;set hidden&amp;rsquo; vim flag enabled.
+The same can be accomplished with arglist without loading files into buffers.</description>
     </item>
     
     <item>
@@ -35,15 +38,6 @@ git checkout feature/123 git rebase master and run into conflicts on some file (
       
       <guid>https://averted.github.io/notes/js/classes/</guid>
       <description>Classes #  Overview #   Class declarations, unlike functions, are not hoisted All methods are nonenumerable Calling class constructor without new throws an error (new.target always exists)  Classes as First-Class Citizens #  A first-class citizen is a value that can be passed into a function, returned from a function, and assigned to a variable. Every JS Function is a first-class citizen, and Classes are as well (can be passed around as arguments inside a fn).</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://averted.github.io/notes/osx/all/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://averted.github.io/notes/osx/all/</guid>
-      <description>TN2450 (Remapping Keys) #  https://developer.apple.com/library/archive/technotes/tn2450/_index.html</description>
     </item>
     
     <item>
@@ -73,15 +67,22 @@ networksetup -setv6off Wi-Fi </description>
     
     <item>
       <title></title>
-      <link>https://averted.github.io/notes/vim/buffers/</link>
+      <link>https://averted.github.io/notes/ts/all/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://averted.github.io/notes/vim/buffers/</guid>
-      <description>Navigation #  Navigate through buffers:
-:next | :n | ]] :prev | :p | [[ Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .) Search and replace multiple files #  Open multiple files into buffers:
-vim ./*.js run:
-:bufdo %s/pattern/replace/ge [| update] update flag is optional if you have &amp;lsquo;set hidden&amp;rsquo; vim flag enabled.
-The same can be accomplished with arglist without loading files into buffers.</description>
+      <guid>https://averted.github.io/notes/ts/all/</guid>
+      <description>TypeScript #  Index Signature #  The [key: T]: U is called an index signature, and is the way you tell TS that an object might contain more keys.
+let a: { b: number c?: string [key: string]: boolean } </description>
+    </item>
+    
+    <item>
+      <title>DOM</title>
+      <link>https://averted.github.io/notes/dev/dom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/dev/dom/</guid>
+      <description>Query Params #  Extract query string params (replace qs?) #  Assuming current URL is: ?post=1234&amp;amp;action=edit
+var urlParams = new URLSearchParams(window.location.search); console.log(urlParams.has(&amp;#39;post&amp;#39;)); // true console.log(urlParams.get(&amp;#39;action&amp;#39;)); // &amp;#34;edit&amp;#34; console.log(urlParams.getAll(&amp;#39;action&amp;#39;)); // [&amp;#34;edit&amp;#34;] console.log(urlParams.toString()); // &amp;#34;?post=1234&amp;amp;action=edit&amp;#34; console.log(urlParams.append(&amp;#39;active&amp;#39;, &amp;#39;1&amp;#39;)); // &amp;#34;?post=1234&amp;amp;action=edit&amp;amp;active=1&amp;#34; </description>
     </item>
     
     <item>
@@ -91,6 +92,15 @@ The same can be accomplished with arglist without loading files into buffers.</d
       
       <guid>https://averted.github.io/notes/js/iterators/</guid>
       <description>Iterators &amp;amp; Generators #  Iterators #  Iterators are objects with a specific interface designed for iteration. All iterator objects have a next() method that returns a result object. The result object has two proerties: value, which is the next value, and done, which is a Boolean that&amp;rsquo;s true when there are no more values to return. The iterator keeps an internal pointer to a location within a collection of values, and with each call to the next() method it returns the next appropriate value.</description>
+    </item>
+    
+    <item>
+      <title>OSX</title>
+      <link>https://averted.github.io/notes/dev/osx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/dev/osx/</guid>
+      <description>TN2450 (Remapping Keys) #  https://developer.apple.com/library/archive/technotes/tn2450/_index.html</description>
     </item>
     
     <item>

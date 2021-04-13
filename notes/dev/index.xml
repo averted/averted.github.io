@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>All on Notes</title>
+    <link>https://averted.github.io/notes/dev/</link>
+    <description>Recent content in All on Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://averted.github.io/notes/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://averted.github.io/notes/dev/git/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/dev/git/</guid>
+      <description>Jan 12, 2014
+ Restore Version #  Restore a version of a file to the one before commit h0a0s0h (~1 for 1 above version):
+git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore Checkout from specific branch #  Example - if your current branch is feature/123, and you&amp;rsquo;re rebasing it on top of master:
+git checkout feature/123 git rebase master and run into conflicts on some file (src/some/file.js), you can revert this file to master&amp;rsquo;s version with:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://averted.github.io/notes/dev/vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/dev/vim/</guid>
+      <description>Buffers #  Navigation #  Navigate through buffers:
+:next | :n | ]] :prev | :p | [[ Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .) Search and replace multiple files #  Open multiple files into buffers:
+vim ./*.js run:
+:bufdo %s/pattern/replace/ge [| update] update flag is optional if you have &amp;lsquo;set hidden&amp;rsquo; vim flag enabled.
+The same can be accomplished with arglist without loading files into buffers.</description>
+    </item>
+    
+    <item>
+      <title>DOM</title>
+      <link>https://averted.github.io/notes/dev/dom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/dev/dom/</guid>
+      <description>Query Params #  Extract query string params (replace qs?) #  Assuming current URL is: ?post=1234&amp;amp;action=edit
+var urlParams = new URLSearchParams(window.location.search); console.log(urlParams.has(&amp;#39;post&amp;#39;)); // true console.log(urlParams.get(&amp;#39;action&amp;#39;)); // &amp;#34;edit&amp;#34; console.log(urlParams.getAll(&amp;#39;action&amp;#39;)); // [&amp;#34;edit&amp;#34;] console.log(urlParams.toString()); // &amp;#34;?post=1234&amp;amp;action=edit&amp;#34; console.log(urlParams.append(&amp;#39;active&amp;#39;, &amp;#39;1&amp;#39;)); // &amp;#34;?post=1234&amp;amp;action=edit&amp;amp;active=1&amp;#34; </description>
+    </item>
+    
+    <item>
+      <title>OSX</title>
+      <link>https://averted.github.io/notes/dev/osx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/dev/osx/</guid>
+      <description>TN2450 (Remapping Keys) #  https://developer.apple.com/library/archive/technotes/tn2450/_index.html</description>
+    </item>
+    
+  </channel>
+</rss>

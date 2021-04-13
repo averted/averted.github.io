@@ -1,7 +1,7 @@
-December 12, 2020
+_December 12, 2020_
 ___
 
-## WiFi
+### WiFi
 
 Turn off IPv6 on Mac OS:
 ```

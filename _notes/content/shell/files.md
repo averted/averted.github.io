@@ -1,7 +1,7 @@
-August 1, 2018
+_August 1, 2018_
 ___
 
-## Chmod
+### Chmod
 
 Default permission:
 ```
@@ -21,7 +21,7 @@ Change all files to `644` under current directory:
 find . -type f -exec chmod 644 {} \;
 ```
 
-## Rename Multiple
+### Rename Multiple
 
 ```
 for i in *.js; do mv "$i" "./${i/pattern/replace}"; done
@@ -38,7 +38,7 @@ Rename list of files from:
 for i in *.svg; do mv "$i" "./${i/ic-//}"; done
 ```
 
-## Encrypt / Decrypt
+### Encrypt / Decrypt
 
 Show list of ciphers:
 

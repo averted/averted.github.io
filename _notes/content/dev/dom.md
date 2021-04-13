@@ -1,4 +1,10 @@
-## Extract query string params (replace qs?)
+---
+title: DOM
+---
+
+## Query Params
+
+### Extract query string params (replace qs?)
 Assuming current URL is: `?post=1234&action=edit`
 
 ```js

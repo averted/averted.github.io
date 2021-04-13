@@ -2,37 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://averted.github.io/notes/osx/</loc>
-  </url><url>
-    <loc>https://averted.github.io/notes/git/</loc>
-  </url><url>
-    <loc>https://averted.github.io/notes/vim/</loc>
+    <loc>https://averted.github.io/notes/dev/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/shell/</loc>
   </url><url>
-    <loc>https://averted.github.io/notes/dom/</loc>
-  </url><url>
     <loc>https://averted.github.io/notes/js/</loc>
   </url><url>
-    <loc>https://averted.github.io/notes/dom/query-params/</loc>
+    <loc>https://averted.github.io/notes/ts/</loc>
   </url><url>
-    <loc>https://averted.github.io/notes/git/all/</loc>
+    <loc>https://averted.github.io/notes/dev/git/</loc>
+  </url><url>
+    <loc>https://averted.github.io/notes/dev/vim/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/js/classes/</loc>
-  </url><url>
-    <loc>https://averted.github.io/notes/osx/all/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/shell/files/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/shell/networking/</loc>
   </url><url>
-    <loc>https://averted.github.io/notes/vim/buffers/</loc>
+    <loc>https://averted.github.io/notes/ts/all/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/categories/</loc>
+  </url><url>
+    <loc>https://averted.github.io/notes/dev/dom/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/js/iterators/</loc>
+  </url><url>
+    <loc>https://averted.github.io/notes/dev/osx/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/shell/postgres/</loc>
   </url><url>

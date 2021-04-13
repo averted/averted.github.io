@@ -4,25 +4,17 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="August 1, 2018
- Chmod #  Default permission:
-chmod 755 # DIR -rwxr-xr-x chmod 644 # FILE -rw-r--r-- Change all directories to 755:
-find . -type d -exec chmod 755 {} \; Change all files to 644 under current directory:
-find . -type f -exec chmod 644 {} \; Rename Multiple #  for i in *.js; do mv &quot;$i&quot; &quot;./${i/pattern/replace}&quot;; done Example:
-Rename list of files from: ic-one.svg -&gt; one.">
+<meta name="description" content="TypeScript #  Index Signature #  The [key: T]: U is called an index signature, and is the way you tell TS that an object might contain more keys.
+let a: { b: number c?: string [key: string]: boolean } ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
-<meta property="og:description" content="August 1, 2018
- Chmod #  Default permission:
-chmod 755 # DIR -rwxr-xr-x chmod 644 # FILE -rw-r--r-- Change all directories to 755:
-find . -type d -exec chmod 755 {} \; Change all files to 644 under current directory:
-find . -type f -exec chmod 644 {} \; Rename Multiple #  for i in *.js; do mv &quot;$i&quot; &quot;./${i/pattern/replace}&quot;; done Example:
-Rename list of files from: ic-one.svg -&gt; one." />
+<meta property="og:description" content="TypeScript #  Index Signature #  The [key: T]: U is called an index signature, and is the way you tell TS that an object might contain more keys.
+let a: { b: number c?: string [key: string]: boolean } " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://averted.github.io/notes/shell/files/" /><meta property="article:section" content="shell" />
+<meta property="og:url" content="https://averted.github.io/notes/ts/all/" /><meta property="article:section" content="ts" />
 
 
 
-<title>Files | Notes</title>
+<title>All | Notes</title>
 <link rel="manifest" href="/notes/manifest.json">
 <link rel="icon" href="/notes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/notes/book.min.525b62cc59c40c7cc41b0d8b36a0163657cb4419334e5ee03f3a787fa6f00325.css" integrity="sha256-UltizFnEDHzEGw2LNqAWNlfLRBkzTl7gPzp4f6bwAyU=">
@@ -163,7 +155,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://averted.github.io/notes/shell/files/" class=" active">Files</a>
+    <a href="https://averted.github.io/notes/shell/files/" class="">Files</a>
   
 
         </li>
@@ -264,7 +256,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://averted.github.io/notes/ts/all/" class="">All</a>
+    <a href="https://averted.github.io/notes/ts/all/" class=" active">All</a>
   
 
         </li>
@@ -310,7 +302,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/notes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Files</strong>
+  <strong>All</strong>
 
   <label for="toc-control">
     
@@ -325,11 +317,9 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#typescript">TypeScript</a>
       <ul>
-        <li><a href="#chmod">Chmod</a></li>
-        <li><a href="#rename-multiple">Rename Multiple</a></li>
-        <li><a href="#encrypt--decrypt">Encrypt / Decrypt</a></li>
+        <li><a href="#index-signature">Index Signature</a></li>
       </ul>
     </li>
   </ul>
@@ -343,46 +333,21 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><p><em>August 1, 2018</em></p>
-<hr>
-<h3 id="chmod">
-  Chmod
-  <a class="anchor" href="#chmod">#</a>
+  <article class="markdown"><h2 id="typescript">
+  TypeScript
+  <a class="anchor" href="#typescript">#</a>
+</h2>
+<h3 id="index-signature">
+  Index Signature
+  <a class="anchor" href="#index-signature">#</a>
 </h3>
-<p>Default permission:</p>
-<pre><code>chmod 755 # DIR     -rwxr-xr-x
-chmod 644 # FILE    -rw-r--r--
-</code></pre><p>Change all directories to <code>755</code>:</p>
-<pre><code>find . -type d -exec chmod 755 {} \;
-</code></pre><p>Change all files to <code>644</code> under current directory:</p>
-<pre><code>find . -type f -exec chmod 644 {} \;
-</code></pre><h3 id="rename-multiple">
-  Rename Multiple
-  <a class="anchor" href="#rename-multiple">#</a>
-</h3>
-<pre><code>for i in *.js; do mv &quot;$i&quot; &quot;./${i/pattern/replace}&quot;; done
-</code></pre><p>Example:</p>
-<pre><code>Rename list of files from:
-  ic-one.svg -&gt; one.svg
-  ic-two.svg -&gt; two.svg
-  ic-three.svg -&gt; three.svg
-
-for i in *.svg; do mv &quot;$i&quot; &quot;./${i/ic-//}&quot;; done
-</code></pre><h3 id="encrypt--decrypt">
-  Encrypt / Decrypt
-  <a class="anchor" href="#encrypt--decrypt">#</a>
-</h3>
-<p>Show list of ciphers:</p>
-<pre><code>openssl list-cipher-commands
-</code></pre><p>Encrypt <code>file.txt</code> to <code>file.cryp</code> using <code>256-bit AES</code> in CBC mode:</p>
-<pre><code>openssl enc -aes-256-cbc -salt -in file.txt -out file.cryp
-</code></pre><p>Same as above, only the output is <code>base64</code> encoded (for e-mails, etc):</p>
-<pre><code>openssl enc -aes-256-cbc -a -salt -in file.txt -out file.cryp
-</code></pre><p>Decrypt binary <code>file.cryp</code>:</p>
-<pre><code>openssl enc -d -aes-256-cbc -in file.cryp
-</code></pre><p>Decrypt base64-encoded version:</p>
-<pre><code>openssl enc -d -aes-256-cbc -a -in file.cryp
-</code></pre></article>
+<p>The <code>[key: T]: U</code> is called an <strong>index signature</strong>, and is the way you tell TS that an object might contain more keys.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> {
+  <span style="color:#a6e22e">b</span>: <span style="color:#66d9ef">number</span>
+  <span style="color:#a6e22e">c?</span>: <span style="color:#66d9ef">string</span>
+  [<span style="color:#a6e22e">key</span>: <span style="color:#66d9ef">string</span>]<span style="color:#f92672">:</span> <span style="color:#66d9ef">boolean</span>
+}
+</code></pre></div></article>
  
       
 
@@ -416,11 +381,9 @@ for i in *.svg; do mv &quot;$i&quot; &quot;./${i/ic-//}&quot;; done
       
   <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#typescript">TypeScript</a>
       <ul>
-        <li><a href="#chmod">Chmod</a></li>
-        <li><a href="#rename-multiple">Rename Multiple</a></li>
-        <li><a href="#encrypt--decrypt">Encrypt / Decrypt</a></li>
+        <li><a href="#index-signature">Index Signature</a></li>
       </ul>
     </li>
   </ul>

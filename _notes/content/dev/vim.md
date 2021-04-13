@@ -1,4 +1,6 @@
-## Navigation
+## Buffers
+
+### Navigation
 Navigate through buffers:
 
 ```
@@ -6,12 +8,12 @@ Navigate through buffers:
 :prev | :p | [[
 ```
 
-## Open all files returned from `grep`
+### Open all files returned from `grep`
 ```
 vim $(grep -lri 'pattern' .)
 ```
 
-## Search and replace multiple files
+### Search and replace multiple files
 Open multiple files into buffers:
 
 ```
@@ -39,3 +41,5 @@ Then replace with:
 ```
 :argdo %s/foo/bar/ge
 ```
+
+_______
