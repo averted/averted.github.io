@@ -72,7 +72,16 @@ networksetup -setv6off Wi-Fi </description>
       
       <guid>https://averted.github.io/notes/ts/all/</guid>
       <description>TypeScript #  Index Signature #  The [key: T]: U is called an index signature, and is the way you tell TS that an object might contain more keys.
-let a: { b: number c?: string [key: string]: boolean } </description>
+let a: { b: number c?: string [key: string]: boolean } Function overloading #  type SomeFunction = { (from: Date, destination: string): Reservation (from: Date, to: Date, destination: string): Reservation } let reserve: SomeFunction = ( from: Date, toOrDestination: Date | string, destination?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://averted.github.io/notes/ts/generics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/ts/generics/</guid>
+      <description>Polymorphism (Generics) #  Intro #  type Filter = { &amp;lt;T&amp;gt;(array: T[], fn: (item: T) =&amp;gt; boolean): T[] } let filter: Filter = (arr, f) =&amp;gt; { ... } // T is bound to number filter([1,2,3], (item) =&amp;gt; item &amp;gt; 2) The place where you declare a generic type dictates when TS will bind a concrete type to your generic. Because we declared as part of call signature, TS will bind a concrete type to T when we actually call filter.</description>
     </item>
     
     <item>

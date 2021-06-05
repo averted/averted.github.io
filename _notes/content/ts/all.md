@@ -10,3 +10,26 @@ let a: {
   [key: string]: boolean
 }
 ```
+
+### Function overloading
+```ts
+type SomeFunction = {
+  (from: Date, destination: string): Reservation
+  (from: Date, to: Date, destination: string): Reservation
+}
+
+let reserve: SomeFunction = (
+  from: Date,
+  toOrDestination: Date | string,
+  destination?: string
+) => { ... }
+
+type CreateElement = {
+  (tag: 'a'): HTMLAnchorElement
+  (tag: 'canvas'): HTMLCanvasElement
+  (tag: 'table'): HTMLTableElement
+  (tag: string): HTMLElement
+}
+
+let createElement: CreateElement = (tag: string): HTMLElement => { ... }
+```
