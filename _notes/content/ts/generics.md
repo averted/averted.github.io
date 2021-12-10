@@ -84,3 +84,74 @@ function triggerEvent({
 ```
 
 ### Bounded Polymorphism
+"Type U should be *at least T*" - putting an *upper bound* on U.o
+
+```ts
+type TreeNode = {
+  value: string
+}
+
+type LeafNode = TreeNode & {
+  isLeaf: true
+}
+
+type InnerNode = TreeNode & {
+  children: [TreeNode] | [TreeNode, TreeNode]
+}
+```
+
+Now let's write a `map` function that maps over node's value.
+```ts
+function mapNode<T extends TreeNode>(
+  node: T,
+  fn: (value: string) => string
+): T {
+  return {
+    ...node,
+    value: fn(node, value)
+  }
+}
+```
+
+`mapNode` now returns a value of type T, which might be a TreeNode or any subtype of TreeNode. If we would've left off T entirely, return type would always be just TreeNode (no subtypes).
+
+Example with multiple constraints:
+```ts
+type HasSides = { numberOfSides: number }
+type SidesHaveLength = { sideLength: number }
+
+function getPerimeter<
+  Shape extends HasSides & SidesHaveLength
+>(s: Shape): Shape {
+  return s
+}
+```
+
+### Generic Type Defaults
+```ts
+type MyEvent<T> = {
+  target: T,
+  type: string
+}
+```
+
+can be rewritten as:
+```ts
+type MyEvent<T = HTMLElement> = {
+  target: T,
+  type: string
+}
+```
+
+and given an upper bound as:
+```ts
+type MyEvent<T extends HTMLElement = HTMLElement> = {
+  target: T,
+  type: string
+}
+
+let myEvent: MyEvent = {
+  target: exampleNode,
+  type: string
+}
+```
