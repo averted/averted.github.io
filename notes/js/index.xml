@@ -16,6 +16,17 @@
     </item>
     
     <item>
+      <title></title>
+      <link>https://averted.github.io/notes/js/dynamic-imports/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://averted.github.io/notes/js/dynamic-imports/</guid>
+      <description>Dynamic Imports #  The import() expression #  The import(module) expression loads the module and returns a promise that resolves into a module object that contains all its exports. It can be called from any place in the code.
+We can use it dynamically in any place of the code, for instance:
+let modulePath = prompt(&amp;#34;Which module to load?&amp;#34;); import(modulePath) .then(obj =&amp;gt; &amp;lt;module object&amp;gt;) .catch(err =&amp;gt; &amp;lt;loading error, e.g. if no such module&amp;gt;) Or, we could use let module = await import(modulePath) if inside an async function.</description>
+    </item>
+    
+    <item>
       <title>Iterators / Generators</title>
       <link>https://averted.github.io/notes/js/iterators/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

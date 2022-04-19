@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ES2022 #  Class Public Instance Fields &amp; Private Instance Fields #  Since ES2015, we could define fields by simply setting them up in our constructors. As a convention, fields that were not supposed to be accessed outside of the class methods were preceded by an underscore, but this did not stop any consumer of this class from accessing them anyway.
+class ColorButton extends HTMLElement { constructor() { this.color = &#34;red&#34; this.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="ES2022 #  Class Public Instance Fields &amp; Private Instance Fields #  Since ES2015, we could define fields by simply setting them up in our constructors. As a convention, fields that were not supposed to be accessed outside of the class methods were preceded by an underscore, but this did not stop any consumer of this class from accessing them anyway.
+class ColorButton extends HTMLElement { constructor() { this.color = &#34;red&#34; this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://averted.github.io/notes/tc39/es2022/" /><meta property="article:section" content="tc39" />
+
+
+
+<title>Es2022 | Notes</title>
+<link rel="manifest" href="/notes/manifest.json">
+<link rel="icon" href="/notes/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/notes/book.min.525b62cc59c40c7cc41b0d8b36a0163657cb4419334e5ee03f3a787fa6f00325.css" integrity="sha256-UltizFnEDHzEGw2LNqAWNlfLRBkzTl7gPzp4f6bwAyU=">
+<script defer src="/notes/en.search.min.bef8db008d581f4d2f415711e12a176b8607285301b95603ba068913c28a9a7d.js" integrity="sha256-vvjbAI1YH00vQVcR4SoXa4YHKFMBuVYDugaJE8KKmn0="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/notes"><span>Notes</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>All</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/dev/git/" class="">Git</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/dev/vim/" class="">Vim</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/dev/dom/" class="">DOM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/dev/osx/" class="">OSX</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Shell</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/shell/files/" class="">Files</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/shell/networking/" class="">Networking</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/shell/postgres/" class="">Postgres</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>JavaScript</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/js/classes/" class="">Classes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/js/dynamic-imports/" class="">Dynamic Imports</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/js/iterators/" class="">Iterators / Generators</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>TypeScript</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/ts/all/" class="">All</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/ts/generics/" class="">Generics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>TC39</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2016/" class="">Es2016</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2017/" class="">Es2017</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2018/" class="">Es2018</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2019/" class="">Es2019</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2020/" class="">Es2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2021/" class="">Es2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2022/" class=" active">Es2022</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/notes/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Es2022</strong>
+
+  <label for="toc-control">
+    
+    <img src="/notes/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#es2022">ES2022</a>
+      <ul>
+        <li><a href="#class-public-instance-fields--private-instance-fields">Class Public Instance Fields &amp; Private Instance Fields</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="es2022">
+  ES2022
+  <a class="anchor" href="#es2022">#</a>
+</h2>
+<h3 id="class-public-instance-fields--private-instance-fields">
+  Class Public Instance Fields &amp; Private Instance Fields
+  <a class="anchor" href="#class-public-instance-fields--private-instance-fields">#</a>
+</h3>
+<p>Since ES2015, we could define fields by simply setting them up in our constructors. As a convention, fields that were not supposed to be accessed outside of the class methods were preceded by an underscore, but this did not stop any consumer of this class from accessing them anyway.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ColorButton</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">HTMLElement</span> {
+
+  <span style="color:#a6e22e">constructor</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_clicked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+  }
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">button</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ColorButton</span>()
+<span style="color:#75715e">// Public fields can be accessed and changed by anyone
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;blue&#34;</span>
+
+<span style="color:#75715e">// Curse your sudden but inevitable betrayal
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">_clicked</span>) <span style="color:#75715e">// Prints: false, can be accessed from the instance
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">_clicked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> <span style="color:#75715e">// Doesn&#39;t throw an error, can be read from the instance
+</span></code></pre></div><p>The first part of this proposal offers a more clear way to define the fields in a class. Instead of defining them in our constructor, we can now define, and if we want to, initialize them on the top level of our classes.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ColorButton</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">HTMLElement</span> {
+  <span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>
+  <span style="color:#a6e22e">_clicked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+}
+</code></pre></div><p>The second part offers a more secure way of hiding private fields from prying eyes. Instead of the conventional underscore, we can now use a preceding # in the field names to block anybody from accessing them outside of the class they&rsquo;re defined on.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ColorButton</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">HTMLElement</span> {
+  <span style="color:#75715e">// All fields are public by default
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>
+
+  <span style="color:#75715e">// Private fields start with a #, can only be changed from inside the class
+</span><span style="color:#75715e"></span>  <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">clicked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">button</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ColorButton</span>()
+<span style="color:#75715e">// Public fields can be accessed and changed by anyone
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;blue&#34;</span>
+
+<span style="color:#75715e">// SyntaxError here
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">button</span>.<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">clicked</span>) <span style="color:#75715e">// Cannot be read from outside
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">button</span>.<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">clicked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> <span style="color:#75715e">// Cannot be assigned a value from outside
+</span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#es2022">ES2022</a>
+      <ul>
+        <li><a href="#class-public-instance-fields--private-instance-fields">Class Public Instance Fields &amp; Private Instance Fields</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

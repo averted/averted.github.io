@@ -4,21 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Jan 12, 2014
- Restore Version #  Restore a version of a file to the one before commit h0a0s0h (~1 for 1 above version):
-git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore Checkout from specific branch #  Example - if your current branch is feature/123, and you&rsquo;re rebasing it on top of master:
-git checkout feature/123 git rebase master and run into conflicts on some file (src/some/file.js), you can revert this file to master&rsquo;s version with:">
+<meta name="description" content="ES2018 #  Promise.prototype.finally #  Finally was introduced to register a callback function that runs when a promise is settled (either fulfilled or rejected)
+Rest and spread operators(&hellip;) #  Rest operator collects values in an array. The spread operator spreads the values in an iterator.
+Improvements on Regular Expressions #  RegExp Unicode Property Escapes, RegExp Lookbehind Assertions, s(dotAll) flag for regular expressions, RegExp named capture groups">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
-<meta property="og:description" content="Jan 12, 2014
- Restore Version #  Restore a version of a file to the one before commit h0a0s0h (~1 for 1 above version):
-git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore Checkout from specific branch #  Example - if your current branch is feature/123, and you&rsquo;re rebasing it on top of master:
-git checkout feature/123 git rebase master and run into conflicts on some file (src/some/file.js), you can revert this file to master&rsquo;s version with:" />
+<meta property="og:description" content="ES2018 #  Promise.prototype.finally #  Finally was introduced to register a callback function that runs when a promise is settled (either fulfilled or rejected)
+Rest and spread operators(&hellip;) #  Rest operator collects values in an array. The spread operator spreads the values in an iterator.
+Improvements on Regular Expressions #  RegExp Unicode Property Escapes, RegExp Lookbehind Assertions, s(dotAll) flag for regular expressions, RegExp named capture groups" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://averted.github.io/notes/dev/git/" /><meta property="article:section" content="dev" />
+<meta property="og:url" content="https://averted.github.io/notes/tc39/es2018/" /><meta property="article:section" content="tc39" />
 
 
 
-<title>Git | Notes</title>
+<title>Es2018 | Notes</title>
 <link rel="manifest" href="/notes/manifest.json">
 <link rel="icon" href="/notes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/notes/book.min.525b62cc59c40c7cc41b0d8b36a0163657cb4419334e5ee03f3a787fa6f00325.css" integrity="sha256-UltizFnEDHzEGw2LNqAWNlfLRBkzTl7gPzp4f6bwAyU=">
@@ -89,7 +87,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://averted.github.io/notes/dev/git/" class=" active">Git</a>
+    <a href="https://averted.github.io/notes/dev/git/" class="">Git</a>
   
 
         </li>
@@ -343,7 +341,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://averted.github.io/notes/tc39/es2018/" class="">Es2018</a>
+    <a href="https://averted.github.io/notes/tc39/es2018/" class=" active">Es2018</a>
   
 
         </li>
@@ -441,7 +439,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/notes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Git</strong>
+  <strong>Es2018</strong>
 
   <label for="toc-control">
     
@@ -456,11 +454,11 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#es2018">ES2018</a>
       <ul>
-        <li><a href="#restore-version">Restore Version</a></li>
-        <li><a href="#checkout-from-specific-branch">Checkout from specific branch</a></li>
-        <li><a href="#diff-between-branches">Diff between branches</a></li>
+        <li><a href="#promiseprototypefinally">Promise.prototype.finally</a></li>
+        <li><a href="#rest-and-spread-operators">Rest and spread operators(&hellip;)</a></li>
+        <li><a href="#improvements-on-regular-expressions">Improvements on Regular Expressions</a></li>
       </ul>
     </li>
   </ul>
@@ -474,33 +472,26 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><p>Jan 12, 2014</p>
-<hr>
-<h3 id="restore-version">
-  Restore Version
-  <a class="anchor" href="#restore-version">#</a>
+  <article class="markdown"><h2 id="es2018">
+  ES2018
+  <a class="anchor" href="#es2018">#</a>
+</h2>
+<h3 id="promiseprototypefinally">
+  Promise.prototype.finally
+  <a class="anchor" href="#promiseprototypefinally">#</a>
 </h3>
-<p>Restore a version of a file to the one before commit <code>h0a0s0h</code> (~1 for 1 above version):</p>
-<pre><code>git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore
-</code></pre><h3 id="checkout-from-specific-branch">
-  Checkout from specific branch
-  <a class="anchor" href="#checkout-from-specific-branch">#</a>
+<p>Finally was introduced to register a callback function that runs when a promise is settled (either fulfilled or rejected)</p>
+<h3 id="rest-and-spread-operators">
+  Rest and spread operators(&hellip;)
+  <a class="anchor" href="#rest-and-spread-operators">#</a>
 </h3>
-<p>Example - if your current branch is <code>feature/123</code>, and you&rsquo;re rebasing it on top of <code>master</code>:</p>
-<pre><code>git checkout feature/123
-git rebase master
-</code></pre><p>and run into conflicts on some file (<code>src/some/file.js</code>), you can revert this file to <code>master</code>&rsquo;s version with:</p>
-<pre><code>git checkout master -- src/some/file.js
-</code></pre><p>or use <code>ours</code> and <code>theirs</code> aliases:</p>
-<pre><code>git checkout --ours src/some/file.js
-git checkout --theirs src/some/file.js
-</code></pre><h3 id="diff-between-branches">
-  Diff between branches
-  <a class="anchor" href="#diff-between-branches">#</a>
+<p>Rest operator collects values in an array. The spread operator spreads the values in an iterator.</p>
+<h3 id="improvements-on-regular-expressions">
+  Improvements on Regular Expressions
+  <a class="anchor" href="#improvements-on-regular-expressions">#</a>
 </h3>
-<p>Show difference between HEAD and specific branch:</p>
-<pre><code>git diff master src/some/file.js
-</code></pre></article>
+<p>RegExp Unicode Property Escapes, RegExp Lookbehind Assertions, s(dotAll) flag for regular expressions, RegExp named capture groups</p>
+</article>
  
       
 
@@ -534,11 +525,11 @@ git checkout --theirs src/some/file.js
       
   <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#es2018">ES2018</a>
       <ul>
-        <li><a href="#restore-version">Restore Version</a></li>
-        <li><a href="#checkout-from-specific-branch">Checkout from specific branch</a></li>
-        <li><a href="#diff-between-branches">Diff between branches</a></li>
+        <li><a href="#promiseprototypefinally">Promise.prototype.finally</a></li>
+        <li><a href="#rest-and-spread-operators">Rest and spread operators(&hellip;)</a></li>
+        <li><a href="#improvements-on-regular-expressions">Improvements on Regular Expressions</a></li>
       </ul>
     </li>
   </ul>

@@ -16,7 +16,7 @@
 <link rel="manifest" href="/notes/manifest.json">
 <link rel="icon" href="/notes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/notes/book.min.525b62cc59c40c7cc41b0d8b36a0163657cb4419334e5ee03f3a787fa6f00325.css" integrity="sha256-UltizFnEDHzEGw2LNqAWNlfLRBkzTl7gPzp4f6bwAyU=">
-<script defer src="/notes/en.search.min.e7dd9627b129f13bc73d078a5fde84cc200c50d6e9655bd1c18d3bfcdd14000d.js" integrity="sha256-592WJ7Ep8TvHPQeKX96EzCAMUNbpZVvRwY07/N0UAA0="></script>
+<script defer src="/notes/en.search.min.bef8db008d581f4d2f415711e12a176b8607285301b95603ba068913c28a9a7d.js" integrity="sha256-vvjbAI1YH00vQVcR4SoXa4YHKFMBuVYDugaJE8KKmn0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -223,6 +223,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://averted.github.io/notes/js/dynamic-imports/" class="">Dynamic Imports</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://averted.github.io/notes/js/iterators/" class="">Iterators / Generators</a>
   
 
@@ -268,6 +281,115 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://averted.github.io/notes/ts/generics/" class=" active">Generics</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>TC39</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2016/" class="">Es2016</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2017/" class="">Es2017</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2018/" class="">Es2018</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2019/" class="">Es2019</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2020/" class="">Es2020</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2021/" class="">Es2021</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://averted.github.io/notes/tc39/es2022/" class="">Es2022</a>
   
 
         </li>
@@ -333,6 +455,7 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#intro">Intro</a></li>
         <li><a href="#generic-type-aliases">Generic Type Aliases</a></li>
         <li><a href="#bounded-polymorphism">Bounded Polymorphism</a></li>
+        <li><a href="#generic-type-defaults">Generic Type Defaults</a></li>
       </ul>
     </li>
   </ul>
@@ -422,7 +545,62 @@ Because we declared <!-- raw HTML omitted --> as part of call signature, TS will
   Bounded Polymorphism
   <a class="anchor" href="#bounded-polymorphism">#</a>
 </h3>
-</article>
+<p>&ldquo;Type U should be <em>at least T</em>&rdquo; - putting an <em>upper bound</em> on U.o</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TreeNode</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">string</span>
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">LeafNode</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">TreeNode</span> <span style="color:#f92672">&amp;</span> {
+  <span style="color:#a6e22e">isLeaf</span>: <span style="color:#66d9ef">true</span>
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">InnerNode</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">TreeNode</span> <span style="color:#f92672">&amp;</span> {
+  <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">TreeNode</span>] <span style="color:#f92672">|</span> [<span style="color:#a6e22e">TreeNode</span>, <span style="color:#a6e22e">TreeNode</span>]
+}
+</code></pre></div><p>Now let&rsquo;s write a <code>map</code> function that maps over node&rsquo;s value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">mapNode</span>&lt;<span style="color:#f92672">T</span> <span style="color:#a6e22e">extends</span> <span style="color:#a6e22e">TreeNode</span>&gt;(
+  <span style="color:#a6e22e">node</span>: <span style="color:#66d9ef">T</span>,
+  <span style="color:#a6e22e">fn</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">string</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">string</span>
+)<span style="color:#f92672">:</span> <span style="color:#a6e22e">T</span> {
+  <span style="color:#66d9ef">return</span> {
+    ...<span style="color:#a6e22e">node</span>,
+    <span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">fn</span>(<span style="color:#a6e22e">node</span>, <span style="color:#a6e22e">value</span>)
+  }
+}
+</code></pre></div><p><code>mapNode</code> now returns a value of type T, which might be a TreeNode or any subtype of TreeNode. If we would&rsquo;ve left off T entirely, return type would always be just TreeNode (no subtypes).</p>
+<p>Example with multiple constraints:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">HasSides</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">numberOfSides</span>: <span style="color:#66d9ef">number</span> }
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">SidesHaveLength</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">sideLength</span>: <span style="color:#66d9ef">number</span> }
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getPerimeter</span><span style="color:#f92672">&lt;</span>
+  <span style="color:#a6e22e">Shape</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">HasSides</span> <span style="color:#f92672">&amp;</span> <span style="color:#a6e22e">SidesHaveLength</span>
+<span style="color:#f92672">&gt;</span>(<span style="color:#a6e22e">s</span>: <span style="color:#66d9ef">Shape</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Shape</span> {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>
+}
+</code></pre></div><h3 id="generic-type-defaults">
+  Generic Type Defaults
+  <a class="anchor" href="#generic-type-defaults">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">MyEvent</span>&lt;<span style="color:#f92672">T</span>&gt; <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">target</span>: <span style="color:#66d9ef">T</span>,
+  <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span>
+}
+</code></pre></div><p>can be rewritten as:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">MyEvent</span>&lt;<span style="color:#f92672">T</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#a6e22e">HTMLElement</span>&gt; <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">target</span>: <span style="color:#66d9ef">T</span>,
+  <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span>
+}
+</code></pre></div><p>and given an upper bound as:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">MyEvent</span>&lt;<span style="color:#f92672">T</span> <span style="color:#a6e22e">extends</span> <span style="color:#a6e22e">HTMLElement </span><span style="color:#f92672">=</span> <span style="color:#a6e22e">HTMLElement</span>&gt; <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">target</span>: <span style="color:#66d9ef">T</span>,
+  <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span>
+}
+
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myEvent</span>: <span style="color:#66d9ef">MyEvent</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">target</span>: <span style="color:#66d9ef">exampleNode</span>,
+  <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span>
+}
+</code></pre></div></article>
  
       
 
@@ -461,6 +639,7 @@ Because we declared <!-- raw HTML omitted --> as part of call signature, TS will
         <li><a href="#intro">Intro</a></li>
         <li><a href="#generic-type-aliases">Generic Type Aliases</a></li>
         <li><a href="#bounded-polymorphism">Bounded Polymorphism</a></li>
+        <li><a href="#generic-type-defaults">Generic Type Defaults</a></li>
       </ul>
     </li>
   </ul>
