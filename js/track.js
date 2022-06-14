@@ -12,15 +12,15 @@
 
   for (var i = 0; i < nodes.length; i++) {
     (function() {
-      var node = document.getElementById(nodes[i].id)
-        , name = nodes[i].name;
+      var node = document.getElementById(nodes[i].id);
+      var name = nodes[i].name;
 
       node.addEventListener('click', function() {
-        ga('send', 'event', 'button', 'click', name);
+        gtag('event', 'click', { name })
       });
 
       node.addEventListener('mouseover', function() {
-        ga('send', 'event', 'button', 'mouseover', name);
+        gtag('event', 'mouseover', { name })
       });
     })();
   }
