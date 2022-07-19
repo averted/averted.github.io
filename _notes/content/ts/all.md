@@ -33,3 +33,19 @@ type CreateElement = {
 
 let createElement: CreateElement = (tag: string): HTMLElement => { ... }
 ```
+
+### Convert an Enum to a Union Type
+
+```ts
+enum Test {
+  One = 'one',
+  Two = 'two',
+  Three = 'three',
+}
+
+// type TestValues = 'one' | 'two' | 'three'
+type TestValues = `${Test}`
+
+// type TestKeys = 'One' | 'Two' | 'Three'
+type TestKeys = keyof typeof Test
+```

@@ -18,7 +18,7 @@ let a: { b: number c?: string [key: string]: boolean } Function overloading #  t
 <link rel="manifest" href="/notes/manifest.json">
 <link rel="icon" href="/notes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/notes/book.min.525b62cc59c40c7cc41b0d8b36a0163657cb4419334e5ee03f3a787fa6f00325.css" integrity="sha256-UltizFnEDHzEGw2LNqAWNlfLRBkzTl7gPzp4f6bwAyU=">
-<script defer src="/notes/en.search.min.bef8db008d581f4d2f415711e12a176b8607285301b95603ba068913c28a9a7d.js" integrity="sha256-vvjbAI1YH00vQVcR4SoXa4YHKFMBuVYDugaJE8KKmn0="></script>
+<script defer src="/notes/en.search.min.6312fd5802f138b87f4fcea012a4c08b8dbd2fa19cabc77f46125c12b0cbc301.js" integrity="sha256-YxL9WALxOLh/T86gEqTAi429L6Gcq8d/RhJcErDLwwE="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -456,6 +456,7 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#index-signature">Index Signature</a></li>
         <li><a href="#function-overloading">Function overloading</a></li>
+        <li><a href="#convert-an-enum-to-a-union-type">Convert an Enum to a Union Type</a></li>
       </ul>
     </li>
   </ul>
@@ -506,6 +507,21 @@ https://github.com/alex-shpak/hugo-book
 }
 
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">createElement</span>: <span style="color:#66d9ef">CreateElement</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">tag</span>: <span style="color:#66d9ef">string</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">HTMLElement</span> <span style="color:#f92672">=&gt;</span> { ... }
+</code></pre></div><h3 id="convert-an-enum-to-a-union-type">
+  Convert an Enum to a Union Type
+  <a class="anchor" href="#convert-an-enum-to-a-union-type">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Test</span> {
+  <span style="color:#a6e22e">One</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;one&#39;</span>,
+  <span style="color:#a6e22e">Two</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;two&#39;</span>,
+  <span style="color:#a6e22e">Three</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;three&#39;</span>,
+}
+
+<span style="color:#75715e">// type TestValues = &#39;one&#39; | &#39;two&#39; | &#39;three&#39;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TestValues</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">Test</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+
+<span style="color:#75715e">// type TestKeys = &#39;One&#39; | &#39;Two&#39; | &#39;Three&#39;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TestKeys</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">keyof</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">Test</span>
 </code></pre></div></article>
  
       
@@ -544,6 +560,7 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#index-signature">Index Signature</a></li>
         <li><a href="#function-overloading">Function overloading</a></li>
+        <li><a href="#convert-an-enum-to-a-union-type">Convert an Enum to a Union Type</a></li>
       </ul>
     </li>
   </ul>
