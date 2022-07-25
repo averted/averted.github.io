@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://averted.github.io/notes/dev/</loc>
+    <loc>https://averted.github.io/notes/all/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/shell/</loc>
   </url><url>
@@ -12,9 +12,9 @@
   </url><url>
     <loc>https://averted.github.io/notes/tc39/</loc>
   </url><url>
-    <loc>https://averted.github.io/notes/dev/git/</loc>
+    <loc>https://averted.github.io/notes/all/git/</loc>
   </url><url>
-    <loc>https://averted.github.io/notes/dev/vim/</loc>
+    <loc>https://averted.github.io/notes/all/vim/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/js/classes/</loc>
   </url><url>
@@ -44,13 +44,13 @@
   </url><url>
     <loc>https://averted.github.io/notes/categories/</loc>
   </url><url>
-    <loc>https://averted.github.io/notes/dev/dom/</loc>
+    <loc>https://averted.github.io/notes/all/dom/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/js/iterators/</loc>
   </url><url>
-    <loc>https://averted.github.io/notes/dev/osx/</loc>
+    <loc>https://averted.github.io/notes/all/osx/</loc>
   </url><url>
     <loc>https://averted.github.io/notes/shell/postgres/</loc>
   </url><url>

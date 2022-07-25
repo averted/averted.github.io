@@ -4,25 +4,21 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ES2019 #  Array.prototype.flat() #  Flattens nested arrays up to a provided depth. Default depth is 1.
-Array.prototype.flatMap() #  Flattens and maps a given array subsequently. Flattening depth is 1.
-Object.fromEntries() #  Builds an object from given key-value pairs.
-String.prototype.trimStart() #  Trims the start of a given string.
-String.prototype.trimEnd() #  Trims the end of a given string.
-Symbol.prototype.description #  Read-only and optional string description for the Symbol objects.">
+<meta name="description" content="Jan 12, 2014
+ Restore Version #  Restore a version of a file to the one before commit h0a0s0h (~1 for 1 above version):
+git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore Checkout from specific branch #  Example - if your current branch is feature/123, and you&rsquo;re rebasing it on top of master:
+git checkout feature/123 git rebase master and run into conflicts on some file (src/some/file.js), you can revert this file to master&rsquo;s version with:">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
-<meta property="og:description" content="ES2019 #  Array.prototype.flat() #  Flattens nested arrays up to a provided depth. Default depth is 1.
-Array.prototype.flatMap() #  Flattens and maps a given array subsequently. Flattening depth is 1.
-Object.fromEntries() #  Builds an object from given key-value pairs.
-String.prototype.trimStart() #  Trims the start of a given string.
-String.prototype.trimEnd() #  Trims the end of a given string.
-Symbol.prototype.description #  Read-only and optional string description for the Symbol objects." />
+<meta property="og:description" content="Jan 12, 2014
+ Restore Version #  Restore a version of a file to the one before commit h0a0s0h (~1 for 1 above version):
+git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore Checkout from specific branch #  Example - if your current branch is feature/123, and you&rsquo;re rebasing it on top of master:
+git checkout feature/123 git rebase master and run into conflicts on some file (src/some/file.js), you can revert this file to master&rsquo;s version with:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://averted.github.io/notes/tc39/es2019/" /><meta property="article:section" content="tc39" />
+<meta property="og:url" content="https://averted.github.io/notes/all/git/" /><meta property="article:section" content="all" />
 
 
 
-<title>Es2019 | Notes</title>
+<title>Git | Notes</title>
 <link rel="manifest" href="/notes/manifest.json">
 <link rel="icon" href="/notes/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/notes/book.min.525b62cc59c40c7cc41b0d8b36a0163657cb4419334e5ee03f3a787fa6f00325.css" integrity="sha256-UltizFnEDHzEGw2LNqAWNlfLRBkzTl7gPzp4f6bwAyU=">
@@ -93,7 +89,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://averted.github.io/notes/all/git/" class="">Git</a>
+    <a href="https://averted.github.io/notes/all/git/" class=" active">Git</a>
   
 
         </li>
@@ -360,7 +356,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://averted.github.io/notes/tc39/es2019/" class=" active">Es2019</a>
+    <a href="https://averted.github.io/notes/tc39/es2019/" class="">Es2019</a>
   
 
         </li>
@@ -445,7 +441,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/notes/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Es2019</strong>
+  <strong>Git</strong>
 
   <label for="toc-control">
     
@@ -460,15 +456,11 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#es2019">ES2019</a>
+    <li>
       <ul>
-        <li><a href="#arrayprototypeflat">Array.prototype.flat()</a></li>
-        <li><a href="#arrayprototypeflatmap">Array.prototype.flatMap()</a></li>
-        <li><a href="#objectfromentries">Object.fromEntries()</a></li>
-        <li><a href="#stringprototypetrimstart">String.prototype.trimStart()</a></li>
-        <li><a href="#stringprototypetrimend">String.prototype.trimEnd()</a></li>
-        <li><a href="#symbolprototypedescription">Symbol.prototype.description</a></li>
-        <li><a href="#optional-catch-binding">Optional catch binding</a></li>
+        <li><a href="#restore-version">Restore Version</a></li>
+        <li><a href="#checkout-from-specific-branch">Checkout from specific branch</a></li>
+        <li><a href="#diff-between-branches">Diff between branches</a></li>
       </ul>
     </li>
   </ul>
@@ -482,46 +474,33 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h2 id="es2019">
-  ES2019
-  <a class="anchor" href="#es2019">#</a>
-</h2>
-<h3 id="arrayprototypeflat">
-  Array.prototype.flat()
-  <a class="anchor" href="#arrayprototypeflat">#</a>
+  <article class="markdown"><p>Jan 12, 2014</p>
+<hr>
+<h3 id="restore-version">
+  Restore Version
+  <a class="anchor" href="#restore-version">#</a>
 </h3>
-<p>Flattens nested arrays up to a provided depth. Default depth is 1.</p>
-<h3 id="arrayprototypeflatmap">
-  Array.prototype.flatMap()
-  <a class="anchor" href="#arrayprototypeflatmap">#</a>
+<p>Restore a version of a file to the one before commit <code>h0a0s0h</code> (~1 for 1 above version):</p>
+<pre><code>git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore
+</code></pre><h3 id="checkout-from-specific-branch">
+  Checkout from specific branch
+  <a class="anchor" href="#checkout-from-specific-branch">#</a>
 </h3>
-<p>Flattens and maps a given array subsequently. Flattening depth is 1.</p>
-<h3 id="objectfromentries">
-  Object.fromEntries()
-  <a class="anchor" href="#objectfromentries">#</a>
+<p>Example - if your current branch is <code>feature/123</code>, and you&rsquo;re rebasing it on top of <code>master</code>:</p>
+<pre><code>git checkout feature/123
+git rebase master
+</code></pre><p>and run into conflicts on some file (<code>src/some/file.js</code>), you can revert this file to <code>master</code>&rsquo;s version with:</p>
+<pre><code>git checkout master -- src/some/file.js
+</code></pre><p>or use <code>ours</code> and <code>theirs</code> aliases:</p>
+<pre><code>git checkout --ours src/some/file.js
+git checkout --theirs src/some/file.js
+</code></pre><h3 id="diff-between-branches">
+  Diff between branches
+  <a class="anchor" href="#diff-between-branches">#</a>
 </h3>
-<p>Builds an object from given key-value pairs.</p>
-<h3 id="stringprototypetrimstart">
-  String.prototype.trimStart()
-  <a class="anchor" href="#stringprototypetrimstart">#</a>
-</h3>
-<p>Trims the start of a given string.</p>
-<h3 id="stringprototypetrimend">
-  String.prototype.trimEnd()
-  <a class="anchor" href="#stringprototypetrimend">#</a>
-</h3>
-<p>Trims the end of a given string.</p>
-<h3 id="symbolprototypedescription">
-  Symbol.prototype.description
-  <a class="anchor" href="#symbolprototypedescription">#</a>
-</h3>
-<p>Read-only and optional string description for the Symbol objects.</p>
-<h3 id="optional-catch-binding">
-  Optional catch binding
-  <a class="anchor" href="#optional-catch-binding">#</a>
-</h3>
-<p>Allows the omission of the catch block</p>
-</article>
+<p>Show difference between HEAD and specific branch:</p>
+<pre><code>git diff master src/some/file.js
+</code></pre></article>
  
       
 
@@ -555,15 +534,11 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#es2019">ES2019</a>
+    <li>
       <ul>
-        <li><a href="#arrayprototypeflat">Array.prototype.flat()</a></li>
-        <li><a href="#arrayprototypeflatmap">Array.prototype.flatMap()</a></li>
-        <li><a href="#objectfromentries">Object.fromEntries()</a></li>
-        <li><a href="#stringprototypetrimstart">String.prototype.trimStart()</a></li>
-        <li><a href="#stringprototypetrimend">String.prototype.trimEnd()</a></li>
-        <li><a href="#symbolprototypedescription">Symbol.prototype.description</a></li>
-        <li><a href="#optional-catch-binding">Optional catch binding</a></li>
+        <li><a href="#restore-version">Restore Version</a></li>
+        <li><a href="#checkout-from-specific-branch">Checkout from specific branch</a></li>
+        <li><a href="#diff-between-branches">Diff between branches</a></li>
       </ul>
     </li>
   </ul>

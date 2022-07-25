@@ -8,10 +8,10 @@
     <language>en-us</language><atom:link href="https://averted.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://averted.github.io/notes/dev/git/</link>
+      <link>https://averted.github.io/notes/all/git/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://averted.github.io/notes/dev/git/</guid>
+      <guid>https://averted.github.io/notes/all/git/</guid>
       <description>Jan 12, 2014
  Restore Version #  Restore a version of a file to the one before commit h0a0s0h (~1 for 1 above version):
 git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore Checkout from specific branch #  Example - if your current branch is feature/123, and you&amp;rsquo;re rebasing it on top of master:
@@ -20,10 +20,10 @@ git checkout feature/123 git rebase master and run into conflicts on some file (
     
     <item>
       <title></title>
-      <link>https://averted.github.io/notes/dev/vim/</link>
+      <link>https://averted.github.io/notes/all/vim/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://averted.github.io/notes/dev/vim/</guid>
+      <guid>https://averted.github.io/notes/all/vim/</guid>
       <description>Buffers #  Navigation #  Navigate through buffers:
 :next | :n | ]] :prev | :p | [[ Open all files returned from grep #  vim $(grep -lri &#39;pattern&#39; .) Search and replace multiple files #  Open multiple files into buffers:
 vim ./*.js run:
@@ -177,10 +177,10 @@ let a: { b: number c?: string [key: string]: boolean } Function overloading #  t
     
     <item>
       <title>DOM</title>
-      <link>https://averted.github.io/notes/dev/dom/</link>
+      <link>https://averted.github.io/notes/all/dom/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://averted.github.io/notes/dev/dom/</guid>
+      <guid>https://averted.github.io/notes/all/dom/</guid>
       <description>Query Params #  Extract query string params (replace qs?) #  Assuming current URL is: ?post=1234&amp;amp;action=edit
 var urlParams = new URLSearchParams(window.location.search); console.log(urlParams.has(&amp;#39;post&amp;#39;)); // true console.log(urlParams.get(&amp;#39;action&amp;#39;)); // &amp;#34;edit&amp;#34; console.log(urlParams.getAll(&amp;#39;action&amp;#39;)); // [&amp;#34;edit&amp;#34;] console.log(urlParams.toString()); // &amp;#34;?post=1234&amp;amp;action=edit&amp;#34; console.log(urlParams.append(&amp;#39;active&amp;#39;, &amp;#39;1&amp;#39;)); // &amp;#34;?post=1234&amp;amp;action=edit&amp;amp;active=1&amp;#34; </description>
     </item>
@@ -196,11 +196,12 @@ var urlParams = new URLSearchParams(window.location.search); console.log(urlPara
     
     <item>
       <title>OSX</title>
-      <link>https://averted.github.io/notes/dev/osx/</link>
+      <link>https://averted.github.io/notes/all/osx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://averted.github.io/notes/dev/osx/</guid>
-      <description>TN2450 (Remapping Keys) #  https://developer.apple.com/library/archive/technotes/tn2450/_index.html</description>
+      <guid>https://averted.github.io/notes/all/osx/</guid>
+      <description>TN2450 (Remapping Keys) #  https://developer.apple.com/library/archive/technotes/tn2450/_index.html
+Remove metadata from file #  ls -la -rw-r--r--@ 1 user staff 286B Jan 18 2021 some-file xattr -c some-file ls -la -rw-r--r-- 1 user staff 286B Jan 18 2021 some-file </description>
     </item>
     
     <item>
