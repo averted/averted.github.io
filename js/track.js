@@ -2,9 +2,6 @@
   var nodes = [
     { id: 'js-now',    name: 'Now' },
     { id: 'js-past',   name: 'Past' },
-    { id: 'js-github', name: 'GitHub' },
-    { id: 'js-email',  name: 'Email' },
-    { id: 'js-travel', name: 'Travel' },
     { id: 'js-sportling', name: 'Sportling' },
     { id: 'js-climbee', name: 'Climbee' },
     { id: 'js-sf-muni', name: 'SF Muni' },
