@@ -8,7 +8,9 @@
     "url": "git+https://github.com/averted/averted.github.io.git"
   },
   "scripts": {
-    "build": "gulp",
+    "build:js": "uglifyjs --mangle -o index.js -- src/index.js",
+    "build:css": "stylus src/styles/style.styl -o css/style.css",
+    "build:css:watch": "npm run build:css -- -w",
     "notes:start": "cd ./_notes && hugo server -D",
     "notes:build": "cd ./_notes && hugo -D"
   },
@@ -17,8 +19,7 @@
     "url": "http://averted.github.io/"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1",
-    "gulp-stylus": "^2.0.6"
+    "stylus": "^0.60.0",
+    "uglify-js": "^3.17.4"
   }
 }

@@ -1,2 +1,88 @@
 @import 'fonts.css';
-body{color:#333;padding:25px;font-size:18px;font-family:'Hack',monospace}h1{font-family:'HackBold',monospace;font-size:20px;padding:0;margin:0}a{color:#333;font-weight:600;text-decoration:none;}a:hover{background:#ddd}a:visited{color:#333}a:active{color:#333}p{margin:0;padding:0;}p.space{padding:15px 0}p.toggle{display:inline-block;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-weight:600;}p.toggle:hover{background-color:#ddd}ul{list-style:none;padding:0;margin:0;}ul li.soon{color:#b3b3b3}#travel{display:none;}#travel ul{display:inline-block;width:220px;margin-top:30px;vertical-align:top;}#travel ul li.title{margin:0 0 8px 0}#travel.open{display:block}
+body {
+  color: #333;
+  margin: 0;
+  padding: 25px;
+  font-size: 18px;
+  font-family: 'Hack', monospace;
+}
+h1 {
+  font-family: 'HackBold', monospace;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+}
+a {
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+  background: #eaeaea;
+}
+a:hover {
+  color: #fff;
+  background: #000;
+}
+a:visited {
+  color: #333;
+}
+a:active {
+  color: #333;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+p.space {
+  padding: 15px 0;
+}
+p.toggle {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 600;
+}
+p.toggle:hover {
+  background-color: #ddd;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul li.soon {
+  color: #b3b3b3;
+}
+img.avatar {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #000;
+  transition: all 100ms linear;
+}
+@media (max-width: 750px) {
+  img.avatar {
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+  }
+}
+span:before {
+  content: '-';
+  margin: 0 8px;
+}
+@media (max-width: 750px) {
+  span {
+    display: block;
+    margin-bottom: 20px;
+  }
+  span:before {
+    display: none;
+  }
+}
