@@ -1,3 +1,9 @@
+const unhide = (node) => {
+  const href = node.getAttribute('href')
+  const parsed = href.replaceAll('[at]', '@').replaceAll('[dot]', '.')
+  node.setAttribute('href', parsed)
+}
+
 const replaceAt = (str, idx, value) => {
   return str.substring(0, idx) + value + str.substring(idx + value.length)
 }

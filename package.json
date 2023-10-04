@@ -8,6 +8,7 @@
     "url": "git+https://github.com/averted/averted.github.io.git"
   },
   "scripts": {
+    "build": "npm run build:js && npm run build:css",
     "build:js": "uglifyjs --mangle -o index.js -- src/index.js",
     "build:css": "stylus src/styles/style.styl -o css/style.css",
     "build:css:watch": "npm run build:css -- -w",
