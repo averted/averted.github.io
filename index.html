@@ -15,6 +15,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.161.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.161.0/examples/jsm/"
+        }
+      }
+    </script>
   </head>
   <body>
     <img class="avatar" src="./avatar.jpeg"></img>
@@ -39,6 +48,9 @@
     <p><a href="https://sportling.co" target="_blank">Sportling</a><span>Group sports matching platform</span></p>
     <p><a href="https://thunderbox.me" target="_blank">Thunderbox</a><span>RaspberryPi + SR501 PIR motion sensor to check meeting room availability status</span></p>
     <p><a href="https://averted.github.io/sf-muni/" target="_blank">SF Bus Tracker</a><span>San Francisco buses / trains realtime tracker</span></p>
+
+
+    <script type="module" src="main.js"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RJL79H0T8"></script>
     <script>
