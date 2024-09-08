@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://averted.github.io/notes/style.css">
+    <link rel="stylesheet" href="https://averted.github.io/notes/color/orange.css">
+
+        <link rel="stylesheet" href="https://averted.github.io/notes/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://averted.github.io/notes/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://averted.github.io/notes/js-dynamic-imports/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="">
+    <meta property="twitter:domain" content="averted.github.io&#x2F;notes">
+    <meta property="twitter:url" content="https://averted.github.io/notes/js-dynamic-imports/">
+
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://averted.github.io/notes" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Notes
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://averted.github.io/notes">all</a></li>
+            
+                <li><a href="https://averted.github.io/notes/tags">tags</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://averted.github.io/notes/js-dynamic-imports/">JS Dynamic Imports</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2016-11-07
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/js/">#js</a></span>
+    
+
+        <div class="post-content">
+            <h3 id="the-import-expression">The import() expression</h3>
+<p>The <code>import(module)</code> expression loads the module and returns a promise that resolves into a module object that contains all its exports. It can be called from any place in the code.</p>
+<p>We can use it dynamically in any place of the code, for instance:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">let </span><span style="color:#bf616a;">modulePath </span><span>= </span><span style="color:#8fa1b3;">prompt</span><span>(&quot;</span><span style="color:#a3be8c;">Which module to load?</span><span>&quot;);
+</span><span>
+</span><span style="color:#8fa1b3;">import</span><span>(</span><span style="color:#bf616a;">modulePath</span><span>)
+</span><span>  .</span><span style="color:#96b5b4;">then</span><span>(</span><span style="color:#bf616a;">obj </span><span style="color:#b48ead;">=&gt; </span><span>&lt;module object&gt;)
+</span><span>  .</span><span style="color:#96b5b4;">catch</span><span>(</span><span style="color:#bf616a;">err </span><span style="color:#b48ead;">=&gt; </span><span>&lt;loading error, e.g. if no such module&gt;)
+</span></code></pre>
+<p>Or, we could use <code>let module = await import(modulePath)</code> if inside an async function.</p>
+<span id="continue-reading"></span>
+<p>For instance, if we have the following module <code>say.js</code>:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#65737e;">// say.js
+</span><span style="color:#b48ead;">export function </span><span style="color:#8fa1b3;">hi</span><span>() {
+</span><span>  </span><span style="color:#8fa1b3;">alert</span><span>(`</span><span style="color:#a3be8c;">Hello</span><span>`);
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">export function </span><span style="color:#8fa1b3;">bye</span><span>() {
+</span><span>  </span><span style="color:#8fa1b3;">alert</span><span>(`</span><span style="color:#a3be8c;">Bye</span><span>`);
+</span><span>}
+</span></code></pre>
+<p>…Then dynamic import can be like this:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">let </span><span>{</span><span style="color:#bf616a;">hi</span><span>, </span><span style="color:#bf616a;">bye</span><span>} = </span><span style="color:#b48ead;">await </span><span>import(&#39;</span><span style="color:#a3be8c;">./say.js</span><span>&#39;);
+</span><span>
+</span><span style="color:#8fa1b3;">hi</span><span>();
+</span><span style="color:#8fa1b3;">bye</span><span>();
+</span></code></pre>
+<p>Or, if <code>say.js</code> has the default export:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">let </span><span style="color:#bf616a;">obj </span><span>= </span><span style="color:#b48ead;">await </span><span>import(&#39;</span><span style="color:#a3be8c;">./say.js</span><span>&#39;);
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">say </span><span>= </span><span style="color:#bf616a;">obj</span><span>.</span><span style="color:#bf616a;">default</span><span>;
+</span><span style="color:#65737e;">// or, in one line: let {default: say} = await import(&#39;./say.js&#39;);
+</span><span>
+</span><span style="color:#8fa1b3;">say</span><span>();
+</span></code></pre>
+<h4 id="notes">Notes</h4>
+<ul>
+<li>Dynamic imports work in regular scripts, they don’t require <code>script type="module"</code>.</li>
+<li>Although <code>import()</code> looks like a function call, it’s a special syntax that just happens to use parentheses (similar to <code>super()</code>). So we can’t copy <code>import</code> to a variable or use <code>call/apply</code> with it. It’s not a function.</li>
+</ul>
+
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h">More Posts</span>
+                    <hr />
+                </div>
+                <div class="pagination__buttons">
+                        <span class="button previous">
+                            <a href="https://averted.github.io/notes/js-classes/">
+                                <span class="button__icon">←</span>&nbsp;
+                                <span class="button__text">JS Classes</span>
+                            </a>
+                        </span>
+                    
+                    
+                        <span class="button next">
+                            <a href="https://averted.github.io/notes/js-iterators/">
+                                <span class="button__text">Iterators &#x2F; Generators</span>&nbsp;
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    </div>
+            </div>
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user"><span/></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

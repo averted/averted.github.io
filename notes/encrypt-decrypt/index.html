@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://averted.github.io/notes/style.css">
+    <link rel="stylesheet" href="https://averted.github.io/notes/color/orange.css">
+
+        <link rel="stylesheet" href="https://averted.github.io/notes/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://averted.github.io/notes/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://averted.github.io/notes/encrypt-decrypt/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="">
+    <meta property="twitter:domain" content="averted.github.io&#x2F;notes">
+    <meta property="twitter:url" content="https://averted.github.io/notes/encrypt-decrypt/">
+
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://averted.github.io/notes" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Notes
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://averted.github.io/notes">all</a></li>
+            
+                <li><a href="https://averted.github.io/notes/tags">tags</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://averted.github.io/notes/encrypt-decrypt/">Encrypt &#x2F; Decrypt</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2018-08-01
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/shell/">#shell</a></span>
+    
+
+        <div class="post-content">
+            <p>Show list of ciphers:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>openssl list-cipher-commands
+</span></code></pre>
+<p>Encrypt <code>file.txt</code> to <code>file.cryp</code> using <code>256-bit AES</code> in CBC mode:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>openssl enc -aes-256-cbc -salt -in file.txt -out file.cryp
+</span></code></pre>
+<span id="continue-reading"></span>
+<p>Same as above, only the output is <code>base64</code> encoded (for e-mails, etc):</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>openssl enc -aes-256-cbc -a -salt -in file.txt -out file.cryp
+</span></code></pre>
+<p>Decrypt binary <code>file.cryp</code>:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>openssl enc -d -aes-256-cbc -in file.cryp
+</span></code></pre>
+<p>Decrypt base64-encoded version:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>openssl enc -d -aes-256-cbc -a -in file.cryp
+</span></code></pre>
+
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h">More Posts</span>
+                    <hr />
+                </div>
+                <div class="pagination__buttons">
+                        <span class="button previous">
+                            <a href="https://averted.github.io/notes/sh-commands/">
+                                <span class="button__icon">←</span>&nbsp;
+                                <span class="button__text">Useful shell commands</span>
+                            </a>
+                        </span>
+                    
+                    
+                        <span class="button next">
+                            <a href="https://averted.github.io/notes/dom-quert-params/">
+                                <span class="button__text">DOM Query Params (URLSearchParams)</span>&nbsp;
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    </div>
+            </div>
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user"><span/></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

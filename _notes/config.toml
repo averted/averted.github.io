@@ -1,8 +1,30 @@
-baseURL = "https://averted.github.io/notes"
-languageCode = "en-us"
-title = "Notes"
-theme = "book"
-publishdir = "../notes"
+theme = "terminimal"
 
-[params]
-  BookSection = "*"
+# The URL the site will be built for
+base_url = "https://averted.github.io/notes"
+
+# Build dir
+output_dir = "../notes"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+taxonomies = [
+  {name = "tags"},
+]
+
+[markdown]
+highlight_code = true
+
+[extra]
+author = "averted"
+logo_text = "Notes"
+accent_color = "orange"
+copyright_html = "<span/>"
+enable_post_view_navigation = true
+post_view_navigation_prompt = "More Posts"
+
+menu_items = [
+  {name = "all", url = "$BASE_URL"},
+  {name = "tags", url = "$BASE_URL/tags"},
+]

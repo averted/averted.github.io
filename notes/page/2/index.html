@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://averted.github.io/notes/style.css">
+    <link rel="stylesheet" href="https://averted.github.io/notes/color/orange.css">
+
+        <link rel="stylesheet" href="https://averted.github.io/notes/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://averted.github.io/notes/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://averted.github.io/notes/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="">
+    <meta property="twitter:domain" content="averted.github.io&#x2F;notes">
+    <meta property="twitter:url" content="https://averted.github.io/notes/">
+
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://averted.github.io/notes" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Notes
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://averted.github.io/notes">all</a></li>
+            
+                <li><a href="https://averted.github.io/notes/tags">tags</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://averted.github.io/notes/network-common/">Network common</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2017-12-12
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/network/">#network</a></span>
+    
+
+
+                    <div class="post-content">
+            <p>Turn off IPv6 on Mac OS:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>networksetup -setv6off Wi-Fi
+</span></code></pre>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://averted.github.io/notes/js-iterators/">Iterators &#x2F; Generators</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2016-11-09
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/js/">#js</a></span>
+    
+
+
+                    
+        <div class="post-content">
+            <h3 id="iterators">Iterators</h3>
+<p><strong><em>Iterators</em></strong> are <strong>objects</strong> with a specific interface designed for iteration.
+All iterator objects have a <code>next()</code> method that returns a result object.
+The result object has two proerties: <code>value</code>, which is the next value, and <code>done</code>, which is a Boolean that's <code>true</code> when there are no more values to return.
+The iterator keeps an internal pointer to a location within a collection of values, and with each call to the <code>next()</code> method it returns the next appropriate value.</p>
+<p>Manually creating an iterator using ECMAScript 5 spec:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">createIterator</span><span>(</span><span style="color:#bf616a;">items</span><span>) {
+</span><span>  </span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">i </span><span>= </span><span style="color:#d08770;">0</span><span>;
+</span><span>
+</span><span>  </span><span style="color:#b48ead;">return </span><span>{
+</span><span>    </span><span style="color:#8fa1b3;">next</span><span>: </span><span style="color:#b48ead;">function</span><span>() {
+</span><span>      </span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">done </span><span>= (</span><span style="color:#bf616a;">i </span><span>&gt;= </span><span style="color:#bf616a;">items</span><span>.length);
+</span><span>      </span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">value </span><span>= !</span><span style="color:#bf616a;">done </span><span>? </span><span style="color:#bf616a;">items</span><span>[</span><span style="color:#bf616a;">i</span><span>++] : </span><span style="color:#d08770;">undefined</span><span>;
+</span><span>      </span><span style="color:#b48ead;">return </span><span>{ </span><span style="color:#bf616a;">done</span><span>, </span><span style="color:#bf616a;">value </span><span>};
+</span><span>    }
+</span><span>  }
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">iterator </span><span>= </span><span style="color:#8fa1b3;">createIterator</span><span>([</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>]);
+</span><span>
+</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#bf616a;">iterator</span><span>.</span><span style="color:#8fa1b3;">next</span><span>());     </span><span style="color:#65737e;">// { value: 1, done: false }
+</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#bf616a;">iterator</span><span>.</span><span style="color:#8fa1b3;">next</span><span>());     </span><span style="color:#65737e;">// { value: 2, done: false }
+</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#bf616a;">iterator</span><span>.</span><span style="color:#8fa1b3;">next</span><span>());     </span><span style="color:#65737e;">// { value: 3, done: false }
+</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#bf616a;">iterator</span><span>.</span><span style="color:#8fa1b3;">next</span><span>());     </span><span style="color:#65737e;">// { value: undefined, done: true }
+</span></code></pre>
+
+        </div>
+        <div>
+            <!-- &#xFE0E; -- force text style - some devices render this as emoji -->
+            <a class="read-more button" href="https://averted.github.io/notes/js-iterators/">
+                <span class="button__text">Read more</span>&nbsp;
+                <span class="button__icon">&#8617;&#xFE0E;</span>
+            </a>
+        </div>
+    
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://averted.github.io/notes/js-dynamic-imports/">JS Dynamic Imports</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2016-11-07
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/js/">#js</a></span>
+    
+
+
+                    
+        <div class="post-content">
+            <h3 id="the-import-expression">The import() expression</h3>
+<p>The <code>import(module)</code> expression loads the module and returns a promise that resolves into a module object that contains all its exports. It can be called from any place in the code.</p>
+<p>We can use it dynamically in any place of the code, for instance:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">let </span><span style="color:#bf616a;">modulePath </span><span>= </span><span style="color:#8fa1b3;">prompt</span><span>(&quot;</span><span style="color:#a3be8c;">Which module to load?</span><span>&quot;);
+</span><span>
+</span><span style="color:#8fa1b3;">import</span><span>(</span><span style="color:#bf616a;">modulePath</span><span>)
+</span><span>  .</span><span style="color:#96b5b4;">then</span><span>(</span><span style="color:#bf616a;">obj </span><span style="color:#b48ead;">=&gt; </span><span>&lt;module object&gt;)
+</span><span>  .</span><span style="color:#96b5b4;">catch</span><span>(</span><span style="color:#bf616a;">err </span><span style="color:#b48ead;">=&gt; </span><span>&lt;loading error, e.g. if no such module&gt;)
+</span></code></pre>
+<p>Or, we could use <code>let module = await import(modulePath)</code> if inside an async function.</p>
+
+        </div>
+        <div>
+            <!-- &#xFE0E; -- force text style - some devices render this as emoji -->
+            <a class="read-more button" href="https://averted.github.io/notes/js-dynamic-imports/">
+                <span class="button__text">Read more</span>&nbsp;
+                <span class="button__icon">&#8617;&#xFE0E;</span>
+            </a>
+        </div>
+    
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://averted.github.io/notes/js-classes/">JS Classes</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2016-11-06
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/js/">#js</a></span>
+    
+
+
+                    
+        <div class="post-content">
+            <h3 id="overview">Overview</h3>
+<ul>
+<li>Class declarations, unlike functions, are not hoisted</li>
+<li>All methods are nonenumerable</li>
+<li>Calling class constructor without new throws an error (<code>new.target</code> always exists)</li>
+</ul>
+<h3 id="classes-as-first-class-citizens">Classes as First-Class Citizens</h3>
+<p>A <strong>first-class citizen</strong> is a value that can be passed into a function, returned from a function, and assigned to a variable.
+Every JS Function is a first-class citizen, and Classes are as well (can be passed around as arguments inside a fn).</p>
+<h3 id="accessor-properties">Accessor Properties</h3>
+<p>Classes allow you to define <strong>accessor properties</strong> on the prototype. Ie:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">CustomHTMLElement </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>(</span><span style="color:#bf616a;">elment</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element </span><span>= </span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">get </span><span style="color:#8fa1b3;">html</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">innerHTML</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">set </span><span style="color:#8fa1b3;">html</span><span>(</span><span style="color:#bf616a;">value</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">innerHTML </span><span>= </span><span style="color:#bf616a;">value</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+
+        </div>
+        <div>
+            <!-- &#xFE0E; -- force text style - some devices render this as emoji -->
+            <a class="read-more button" href="https://averted.github.io/notes/js-classes/">
+                <span class="button__text">Read more</span>&nbsp;
+                <span class="button__icon">&#8617;&#xFE0E;</span>
+            </a>
+        </div>
+    
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://averted.github.io/notes/vim-buffers/">Vim Buffers</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2016-11-06
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/vim/">#vim</a></span>
+    
+
+
+                    
+        <div class="post-content">
+            <h3 id="navigation">Navigation</h3>
+<p>Navigate through buffers:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>:next | :n | ]]
+</span><span>:prev | :p | [[
+</span></code></pre>
+<h3 id="open-all-files-returned-from-grep">Open all files returned from <code>grep</code></h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>vim $(grep -lri &#39;pattern&#39; .)
+</span></code></pre>
+
+        </div>
+        <div>
+            <!-- &#xFE0E; -- force text style - some devices render this as emoji -->
+            <a class="read-more button" href="https://averted.github.io/notes/vim-buffers/">
+                <span class="button__text">Read more</span>&nbsp;
+                <span class="button__icon">&#8617;&#xFE0E;</span>
+            </a>
+        </div>
+    
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://averted.github.io/notes/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Newer posts</span>
+                        </a>
+                    </span>
+                
+                    <span class="button next">
+                        <a href="https://averted.github.io/notes/page/3/">
+                            <span class="button__text">Older posts</span>&nbsp;
+                            <span class="button__icon">→</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user"><span/></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

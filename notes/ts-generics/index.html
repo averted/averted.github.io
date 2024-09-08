@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://averted.github.io/notes/style.css">
+    <link rel="stylesheet" href="https://averted.github.io/notes/color/orange.css">
+
+        <link rel="stylesheet" href="https://averted.github.io/notes/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://averted.github.io/notes/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://averted.github.io/notes/ts-generics/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="">
+    <meta property="twitter:domain" content="averted.github.io&#x2F;notes">
+    <meta property="twitter:url" content="https://averted.github.io/notes/ts-generics/">
+
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://averted.github.io/notes" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Notes
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://averted.github.io/notes">all</a></li>
+            
+                <li><a href="https://averted.github.io/notes/tags">tags</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://averted.github.io/notes/ts-generics/">TS Generics</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2018-07-17
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/ts/">#ts</a></span>
+    
+
+        <div class="post-content">
+            <h3 id="polymorphism-generics">Polymorphism (Generics)</h3>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>Filter = {
+</span><span>  &lt;T&gt;(</span><span style="color:#bf616a;">array</span><span>: T[], </span><span style="color:#8fa1b3;">fn</span><span>: (</span><span style="color:#bf616a;">item</span><span>: T) </span><span style="color:#b48ead;">=&gt; </span><span>boolean): T[]
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#8fa1b3;">filter</span><span>: Filter = (</span><span style="color:#bf616a;">arr</span><span>, </span><span style="color:#bf616a;">f</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{ ... }
+</span><span>
+</span><span style="color:#65737e;">// T is bound to number
+</span><span style="color:#8fa1b3;">filter</span><span>([</span><span style="color:#d08770;">1</span><span>,</span><span style="color:#d08770;">2</span><span>,</span><span style="color:#d08770;">3</span><span>], (</span><span style="color:#bf616a;">item</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">item </span><span>&gt; </span><span style="color:#d08770;">2</span><span>)
+</span></code></pre>
+<p>The place where you declare a generic type dictates when TS will bind a concrete type to your generic.
+Because we declared <T> as part of call signature, TS will bind a concrete type to T when we actually call <code>filter</code>.</p>
+<span id="continue-reading"></span>
+<p>If instead we'd scoped <T> to the type alias <code>Filter</code>, TS would have required us to bind a type explicitly when we use <code>Filter</code>:</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>Filter&lt;T&gt; = {
+</span><span>  (</span><span style="color:#bf616a;">array</span><span>: T[], </span><span style="color:#8fa1b3;">fn</span><span>: (</span><span style="color:#bf616a;">item</span><span>: T) </span><span style="color:#b48ead;">=&gt; </span><span>boolean): T[]
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#8fa1b3;">filter</span><span>: Filter = (</span><span style="color:#bf616a;">arr</span><span>, </span><span style="color:#bf616a;">fn</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{ ... } </span><span style="color:#65737e;">// Error: Generic type Filter requires 1 type argument
+</span><span style="color:#b48ead;">let </span><span style="color:#8fa1b3;">another</span><span>: Filter&lt;number&gt; = (</span><span style="color:#bf616a;">arr</span><span>, </span><span style="color:#bf616a;">fn</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{ ... }
+</span></code></pre>
+<p>You can add a generic for each way of declaring a call signature:</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>Filter = {
+</span><span>  &lt;T&gt;(</span><span style="color:#bf616a;">array</span><span>: T[], </span><span style="color:#8fa1b3;">fn</span><span>: (</span><span style="color:#bf616a;">item</span><span>: T) </span><span style="color:#b48ead;">=&gt; </span><span>boolean): T[]
+</span><span>}
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">filter</span><span>: Filter = </span><span style="color:#65737e;">// ...
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>Filter&lt;T&gt; = {
+</span><span>  (</span><span style="color:#bf616a;">array</span><span>: T[], </span><span style="color:#8fa1b3;">fn</span><span>: (</span><span style="color:#bf616a;">item</span><span>: T) </span><span style="color:#b48ead;">=&gt; </span><span>boolean): T[]
+</span><span>}
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">filter</span><span>: Filter&lt;number&gt; = </span><span style="color:#65737e;">// ...
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>Filter = &lt;T&gt;(</span><span style="color:#bf616a;">array</span><span>: T[], </span><span style="color:#8fa1b3;">fn</span><span>: (</span><span style="color:#bf616a;">item</span><span>: T) </span><span style="color:#b48ead;">=&gt; </span><span>boolean): T[]
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">filter</span><span>: Filter = </span><span style="color:#65737e;">// ...
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>Filter&lt;T&gt; = (</span><span style="color:#bf616a;">array</span><span>: T[], </span><span style="color:#8fa1b3;">fn</span><span>: (</span><span style="color:#bf616a;">item</span><span>: T) </span><span style="color:#b48ead;">=&gt; </span><span>boolean): T[]
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">filter</span><span>: Filter&lt;number&gt; = </span><span style="color:#65737e;">// ...
+</span><span>
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">filter</span><span>&lt;T&gt;(</span><span style="color:#bf616a;">arr</span><span>: T[], </span><span style="color:#8fa1b3;">fn</span><span>: (</span><span style="color:#bf616a;">item</span><span>: T) </span><span style="color:#b48ead;">=&gt; </span><span>boolean): T[] {
+</span><span>  </span><span style="color:#65737e;">// ...
+</span><span>}
+</span><span style="color:#8fa1b3;">filter</span><span>([</span><span style="color:#d08770;">1</span><span>,</span><span style="color:#d08770;">2</span><span>,</span><span style="color:#d08770;">3</span><span>], </span><span style="color:#bf616a;">x </span><span style="color:#b48ead;">=&gt; </span><span style="color:#ebcb8b;">Boolean</span><span>(</span><span style="color:#bf616a;">x</span><span>)) </span><span style="color:#65737e;">// contextual typing
+</span><span style="color:#8fa1b3;">filter</span><span>&lt;number&gt;([</span><span style="color:#d08770;">1</span><span>,</span><span style="color:#d08770;">2</span><span>,</span><span style="color:#d08770;">3</span><span>], </span><span style="color:#bf616a;">x </span><span style="color:#b48ead;">=&gt; </span><span style="color:#ebcb8b;">Boolean</span><span>(</span><span style="color:#bf616a;">x</span><span>)) </span><span style="color:#65737e;">// explicit typing
+</span></code></pre>
+<p>Map example:</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">map</span><span>&lt;T, U&gt;(</span><span style="color:#bf616a;">arr</span><span>: T[], </span><span style="color:#8fa1b3;">fn</span><span>: (</span><span style="color:#bf616a;">item</span><span>: T) </span><span style="color:#b48ead;">=&gt; </span><span>U): U[] {
+</span><span>  </span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">result </span><span>= []
+</span><span>
+</span><span>  </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">i </span><span>= </span><span style="color:#d08770;">0</span><span>; </span><span style="color:#bf616a;">i </span><span>&lt; </span><span style="color:#bf616a;">arr</span><span>.length; </span><span style="color:#bf616a;">i</span><span>++) {
+</span><span>    </span><span style="color:#bf616a;">result</span><span>[</span><span style="color:#bf616a;">i</span><span>] = </span><span style="color:#8fa1b3;">fn</span><span>(</span><span style="color:#bf616a;">arr</span><span>[</span><span style="color:#bf616a;">i</span><span>])
+</span><span>  }
+</span><span>
+</span><span>  </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">result
+</span><span>}
+</span></code></pre>
+<h3 id="generic-type-aliases">Generic Type Aliases</h3>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>MyEvent&lt;T&gt; = {
+</span><span>  </span><span style="color:#bf616a;">target</span><span>: T
+</span><span>  </span><span style="color:#bf616a;">type</span><span>: string
+</span><span>}
+</span></code></pre>
+<p>You can use a generic type alias in a function's signature. When TS binds a type to T, it'll also bind it to <code>MyEvent</code> for you:</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">triggerEvent</span><span>&lt;T&gt;(</span><span style="color:#bf616a;">event</span><span>: MyEvent&lt;T&gt;): void { ... }
+</span><span>
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">triggerEvent</span><span>({
+</span><span>  </span><span style="color:#bf616a;">target</span><span>: </span><span style="color:#bf616a;">document</span><span>.</span><span style="color:#bf616a;">querySelector</span><span>(&#39;</span><span style="color:#a3be8c;">#button</span><span>&#39;),
+</span><span>  </span><span style="color:#bf616a;">type</span><span>: &#39;</span><span style="color:#a3be8c;">mouseover</span><span>&#39;
+</span><span>})
+</span></code></pre>
+<h3 id="bounded-polymorphism">Bounded Polymorphism</h3>
+<p>"Type U should be <em>at least T</em>" - putting an <em>upper bound</em> on U.o</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>TreeNode = {
+</span><span>  </span><span style="color:#bf616a;">value</span><span>: string
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>LeafNode = TreeNode &amp; {
+</span><span>  </span><span style="color:#bf616a;">isLeaf</span><span>: true
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>InnerNode = TreeNode &amp; {
+</span><span>  </span><span style="color:#bf616a;">children</span><span>: [TreeNode] | [TreeNode, TreeNode]
+</span><span>}
+</span></code></pre>
+<p>Now let's write a <code>map</code> function that maps over node's value.</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">mapNode</span><span>&lt;T </span><span style="color:#b48ead;">extends </span><span>TreeNode&gt;(
+</span><span>  </span><span style="color:#bf616a;">node</span><span>: T,
+</span><span>  </span><span style="color:#8fa1b3;">fn</span><span>: (</span><span style="color:#bf616a;">value</span><span>: string) </span><span style="color:#b48ead;">=&gt; </span><span>string
+</span><span>): T {
+</span><span>  </span><span style="color:#b48ead;">return </span><span>{
+</span><span>    ...</span><span style="color:#bf616a;">node</span><span>,
+</span><span>    value: </span><span style="color:#8fa1b3;">fn</span><span>(</span><span style="color:#bf616a;">node</span><span>, </span><span style="color:#bf616a;">value</span><span>)
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<p><code>mapNode</code> now returns a value of type T, which might be a TreeNode or any subtype of TreeNode. If we would've left off T entirely, return type would always be just TreeNode (no subtypes).</p>
+<p>Example with multiple constraints:</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>HasSides = { </span><span style="color:#bf616a;">numberOfSides</span><span>: number }
+</span><span style="color:#b48ead;">type </span><span>SidesHaveLength = { </span><span style="color:#bf616a;">sideLength</span><span>: number }
+</span><span>
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">getPerimeter</span><span>&lt;
+</span><span>  Shape </span><span style="color:#b48ead;">extends </span><span>HasSides &amp; SidesHaveLength
+</span><span>&gt;(</span><span style="color:#bf616a;">s</span><span>: Shape): Shape {
+</span><span>  </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">s
+</span><span>}
+</span></code></pre>
+<h3 id="generic-type-defaults">Generic Type Defaults</h3>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>MyEvent&lt;T&gt; = {
+</span><span>  </span><span style="color:#bf616a;">target</span><span>: T,
+</span><span>  </span><span style="color:#bf616a;">type</span><span>: string
+</span><span>}
+</span></code></pre>
+<p>can be rewritten as:</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>MyEvent&lt;T = HTMLElement&gt; = {
+</span><span>  </span><span style="color:#bf616a;">target</span><span>: T,
+</span><span>  </span><span style="color:#bf616a;">type</span><span>: string
+</span><span>}
+</span></code></pre>
+<p>and given an upper bound as:</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>MyEvent&lt;T </span><span style="color:#b48ead;">extends </span><span>HTMLElement = HTMLElement&gt; = {
+</span><span>  </span><span style="color:#bf616a;">target</span><span>: T,
+</span><span>  </span><span style="color:#bf616a;">type</span><span>: string
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">myEvent</span><span>: MyEvent = {
+</span><span>  target: </span><span style="color:#bf616a;">exampleNode</span><span>,
+</span><span>  type: </span><span style="color:#bf616a;">string
+</span><span>}
+</span></code></pre>
+
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h">More Posts</span>
+                    <hr />
+                </div>
+                <div class="pagination__buttons">
+                        <span class="button previous">
+                            <a href="https://averted.github.io/notes/ts-common/">
+                                <span class="button__icon">←</span>&nbsp;
+                                <span class="button__text">TS Common</span>
+                            </a>
+                        </span>
+                    
+                    
+                        <span class="button next">
+                            <a href="https://averted.github.io/notes/sh-commands/">
+                                <span class="button__text">Useful shell commands</span>&nbsp;
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    </div>
+            </div>
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user"><span/></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

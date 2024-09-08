@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://averted.github.io/notes/style.css">
+    <link rel="stylesheet" href="https://averted.github.io/notes/color/orange.css">
+
+        <link rel="stylesheet" href="https://averted.github.io/notes/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://averted.github.io/notes/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://averted.github.io/notes/git-commands/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="">
+    <meta property="twitter:domain" content="averted.github.io&#x2F;notes">
+    <meta property="twitter:url" content="https://averted.github.io/notes/git-commands/">
+
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://averted.github.io/notes" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Notes
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://averted.github.io/notes">all</a></li>
+            
+                <li><a href="https://averted.github.io/notes/tags">tags</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://averted.github.io/notes/git-commands/">Useful git commands</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2014-07-12
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/git/">#git</a></span>
+    
+
+        <div class="post-content">
+            <h3 id="diff-between-branches">Diff between branches</h3>
+<p>Show difference between HEAD and specific branch:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>git diff master src/some/file.js
+</span><span>
+</span><span>&lt;!-- more --&gt;
+</span><span>
+</span></code></pre>
+<h3 id="restore-version">Restore Version</h3>
+<p>Restore a version of a file to the one before commit <code>h0a0s0h</code> (~1 for 1 above version):</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>git checkout h0a0s0h~1 -- file1/to/restore file2/to/restore
+</span></code></pre>
+<h3 id="checkout-from-specific-branch">Checkout from specific branch</h3>
+<p>Example - if your current branch is <code>feature/123</code>, and you're rebasing it on top of <code>master</code>:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>git checkout feature/123
+</span><span>git rebase master
+</span></code></pre>
+<p>and run into conflicts on some file (<code>src/some/file.js</code>), you can revert this file to <code>master</code>'s version with:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>git checkout master -- src/some/file.js
+</span></code></pre>
+<p>or use <code>ours</code> and <code>theirs</code> aliases:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>git checkout --ours src/some/file.js
+</span><span>git checkout --theirs src/some/file.js
+</span></code></pre>
+
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h">More Posts</span>
+                    <hr />
+                </div>
+                <div class="pagination__buttons">
+                    
+                        <span class="button next">
+                            <a href="https://averted.github.io/notes/vim-buffers/">
+                                <span class="button__text">Vim Buffers</span>&nbsp;
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    </div>
+            </div>
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user"><span/></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://averted.github.io/notes/style.css">
+    <link rel="stylesheet" href="https://averted.github.io/notes/color/orange.css">
+
+        <link rel="stylesheet" href="https://averted.github.io/notes/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://averted.github.io/notes/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://averted.github.io/notes/js-classes/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="">
+    <meta property="twitter:domain" content="averted.github.io&#x2F;notes">
+    <meta property="twitter:url" content="https://averted.github.io/notes/js-classes/">
+
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://averted.github.io/notes" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Notes
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://averted.github.io/notes">all</a></li>
+            
+                <li><a href="https://averted.github.io/notes/tags">tags</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://averted.github.io/notes/js-classes/">JS Classes</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2016-11-06
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/js/">#js</a></span>
+    
+
+        <div class="post-content">
+            <h3 id="overview">Overview</h3>
+<ul>
+<li>Class declarations, unlike functions, are not hoisted</li>
+<li>All methods are nonenumerable</li>
+<li>Calling class constructor without new throws an error (<code>new.target</code> always exists)</li>
+</ul>
+<h3 id="classes-as-first-class-citizens">Classes as First-Class Citizens</h3>
+<p>A <strong>first-class citizen</strong> is a value that can be passed into a function, returned from a function, and assigned to a variable.
+Every JS Function is a first-class citizen, and Classes are as well (can be passed around as arguments inside a fn).</p>
+<h3 id="accessor-properties">Accessor Properties</h3>
+<p>Classes allow you to define <strong>accessor properties</strong> on the prototype. Ie:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">CustomHTMLElement </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>(</span><span style="color:#bf616a;">elment</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element </span><span>= </span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">get </span><span style="color:#8fa1b3;">html</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">innerHTML</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">set </span><span style="color:#8fa1b3;">html</span><span>(</span><span style="color:#bf616a;">value</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">innerHTML </span><span>= </span><span style="color:#bf616a;">value</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<span id="continue-reading"></span><h3 id="computed-member-names">Computed Member Names</h3>
+<p>Class methods and accessor properties can also have computed names: Ie:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">const </span><span style="color:#bf616a;">methodName </span><span>= &#39;</span><span style="color:#a3be8c;">sayName</span><span>&#39;;
+</span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">propertyName </span><span>= &#39;</span><span style="color:#a3be8c;">html</span><span>&#39;;
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Person </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>(</span><span style="color:#bf616a;">name</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">element</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.name </span><span>= </span><span style="color:#bf616a;">name</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element </span><span>= </span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  [</span><span style="color:#bf616a;">methodName</span><span style="color:#eff1f5;">]</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#ebcb8b;">console</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">log</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.name);
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">get </span><span style="color:#eff1f5;">[</span><span style="color:#bf616a;">propertyName</span><span style="color:#eff1f5;">]</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">innerHTML</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">set </span><span style="color:#eff1f5;">[</span><span style="color:#bf616a;">propertyName</span><span style="color:#eff1f5;">]</span><span>(</span><span style="color:#bf616a;">value</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">innerHTML </span><span>= </span><span style="color:#bf616a;">value</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<h3 id="inheritance-with-derived-classes">Inheritance with Derived Classes</h3>
+<p>Classes that inherit from other classes are called <em>derived classes</em>.
+Derived classes require you to use <code>super()</code> if you specify a constructor.</p>
+<p>Accepting any type of expression after <code>extends</code> offers powerful possibilities, such as dynamically determining what to inherit from. Ie:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Animal </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">}
+</span><span>
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">getBase</span><span>() {
+</span><span>  </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">Animal</span><span>;
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Dog </span><span style="color:#b48ead;">extends </span><span style="color:#8fa1b3;">getBase</span><span style="color:#eff1f5;">() {
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<p>And because you can determine the base class dynamically, it's possible to create different inheritance approaches - for example <em>mixins</em>.</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">const </span><span style="color:#bf616a;">SerializableMixin </span><span>= {
+</span><span>  </span><span style="color:#8fa1b3;">serialize</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">return </span><span>JSON.</span><span style="color:#96b5b4;">stringify</span><span>(</span><span style="color:#bf616a;">this</span><span>);
+</span><span>  }
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">AreaMixin </span><span>= {
+</span><span>  </span><span style="color:#8fa1b3;">getArea</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">this</span><span>.</span><span style="color:#bf616a;">lenght </span><span>* </span><span style="color:#bf616a;">this</span><span>.width;
+</span><span>  }
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">mixin</span><span>(...</span><span style="color:#bf616a;">mixins</span><span>) {
+</span><span>  </span><span style="color:#b48ead;">const </span><span style="color:#8fa1b3;">base </span><span>= </span><span style="color:#b48ead;">function</span><span>() {};
+</span><span>  </span><span style="color:#ebcb8b;">Object</span><span>.</span><span style="color:#8fa1b3;">assign</span><span>(</span><span style="color:#ebcb8b;">base</span><span>.prototype, ...</span><span style="color:#bf616a;">mixins</span><span>);
+</span><span>  </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">base</span><span>;
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Square </span><span style="color:#b48ead;">extends </span><span style="color:#8fa1b3;">mixin</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">AreaMixin</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">SerializableMixin</span><span style="color:#eff1f5;">) {
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>(</span><span style="color:#bf616a;">length</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">super</span><span style="color:#eff1f5;">();
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.width </span><span>= </span><span style="color:#bf616a;">length</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.length </span><span>= </span><span style="color:#bf616a;">length</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">x </span><span>= new Square(</span><span style="color:#d08770;">3</span><span>);
+</span><span style="color:#bf616a;">x</span><span>.</span><span style="color:#8fa1b3;">getArea</span><span>();
+</span><span style="color:#bf616a;">x</span><span>.</span><span style="color:#8fa1b3;">serialize</span><span>();
+</span></code></pre>
+<h3 id="symbol-species-property"><code>Symbol.species</code> property</h3>
+<p>Any method that returns an instance of a build-in (i.e. Array), will automatically return a derived class instance instead.</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MyArray </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">Array </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">items </span><span>= new MyArray(</span><span style="color:#d08770;">1</span><span>,</span><span style="color:#d08770;">2</span><span>,</span><span style="color:#d08770;">3</span><span>,</span><span style="color:#d08770;">4</span><span>)
+</span><span>  , </span><span style="color:#bf616a;">subitems </span><span>= </span><span style="color:#bf616a;">items</span><span>.</span><span style="color:#96b5b4;">slice</span><span>(</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">3</span><span>);
+</span><span>
+</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#bf616a;">items instance </span><span>of </span><span style="color:#bf616a;">MyArray</span><span>);               </span><span style="color:#65737e;">// true
+</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#bf616a;">subitems instance </span><span>of </span><span style="color:#bf616a;">MyArray</span><span>);            </span><span style="color:#65737e;">// true
+</span></code></pre>
+<p>The <code>Symbol.species</code> is used to define a static accessor property that returns a function.</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#65737e;">// several built-ins use species similar to this
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MyClass </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">static get </span><span style="color:#eff1f5;">[</span><span style="color:#ebcb8b;">Symbol</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">species</span><span style="color:#eff1f5;">]</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>(</span><span style="color:#bf616a;">value</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.value </span><span>= </span><span style="color:#bf616a;">value</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#8fa1b3;">clone</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">return </span><span>new </span><span style="color:#eff1f5;">this.constructor[Symbol.species](</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.value);
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<p>The <code>clone()</code> method uses species to return a new instance rather than directly using <code>MyClass</code>, which allows direved classes to override that value.
+In general, you should use <code>Symbol.species</code> property whenever you might want to use <code>this.contructor</code> in a class method.
+Doing so allows deived classes to override the return type easily.</p>
+<h3 id="new-target-in-class-constructors"><code>new.target</code> in Class Constructors</h3>
+<p>You can use <code>new.target</code> in class constructors to determine how the class is being invoked.
+This is useful because it gives each sontructor the ability to alter it's behaviour.
+For example you can create an <em>abstract class</em> (a class that can't be initialized directly):</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Shape </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">if </span><span style="color:#eff1f5;">(</span><span>new</span><span style="color:#eff1f5;">.target </span><span>=== </span><span style="color:#bf616a;">Shape</span><span style="color:#eff1f5;">) {
+</span><span style="color:#eff1f5;">      </span><span style="color:#b48ead;">throw </span><span>new </span><span style="color:#eff1f5;">Error(</span><span>&#39;</span><span style="color:#a3be8c;">Abstract class: cannot initialize directly</span><span>&#39;</span><span style="color:#eff1f5;">);
+</span><span style="color:#eff1f5;">    }
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Rect </span><span style="color:#b48ead;">extends </span><span style="color:#a3be8c;">Shape </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">x </span><span>= new Shape();                  </span><span style="color:#65737e;">// error
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">y </span><span>= new Rect(</span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>);               </span><span style="color:#65737e;">// no error
+</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#bf616a;">y instance </span><span>of </span><span style="color:#bf616a;">Shape</span><span>);     </span><span style="color:#65737e;">// true
+</span></code></pre>
+<h3 id="experiments">Experiments</h3>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeElement </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">constructor</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element </span><span>= </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">      value: </span><span>&#39;</span><span style="color:#a3be8c;">something</span><span>&#39;</span><span style="color:#eff1f5;">,
+</span><span style="color:#eff1f5;">      another: </span><span>&#39;</span><span style="color:#a3be8c;">another</span><span>&#39;</span><span style="color:#eff1f5;">,
+</span><span style="color:#eff1f5;">    }
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">get </span><span style="color:#8fa1b3;">html</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">.value;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">  </span><span style="color:#b48ead;">set </span><span style="color:#8fa1b3;">html</span><span>(</span><span style="color:#bf616a;">value</span><span>) </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">    </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">element</span><span style="color:#eff1f5;">.value </span><span>= </span><span style="color:#bf616a;">value</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">  }
+</span><span style="color:#eff1f5;">}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">some </span><span>= new SomeElement();
+</span><span style="color:#bf616a;">some</span><span>.</span><span style="color:#bf616a;">html </span><span>= &#39;</span><span style="color:#a3be8c;">test</span><span>&#39;
+</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#bf616a;">some</span><span>)
+</span></code></pre>
+
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h">More Posts</span>
+                    <hr />
+                </div>
+                <div class="pagination__buttons">
+                        <span class="button previous">
+                            <a href="https://averted.github.io/notes/vim-buffers/">
+                                <span class="button__icon">←</span>&nbsp;
+                                <span class="button__text">Vim Buffers</span>
+                            </a>
+                        </span>
+                    
+                    
+                        <span class="button next">
+                            <a href="https://averted.github.io/notes/js-dynamic-imports/">
+                                <span class="button__text">JS Dynamic Imports</span>&nbsp;
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    </div>
+            </div>
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user"><span/></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

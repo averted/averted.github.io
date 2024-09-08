@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://averted.github.io/notes/style.css">
+    <link rel="stylesheet" href="https://averted.github.io/notes/color/orange.css">
+
+        <link rel="stylesheet" href="https://averted.github.io/notes/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://averted.github.io/notes/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://averted.github.io/notes/ts-common/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="">
+    <meta property="twitter:domain" content="averted.github.io&#x2F;notes">
+    <meta property="twitter:url" content="https://averted.github.io/notes/ts-common/">
+
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://averted.github.io/notes" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Notes
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://averted.github.io/notes">all</a></li>
+            
+                <li><a href="https://averted.github.io/notes/tags">tags</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://averted.github.io/notes/ts-common/">TS Common</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2018-07-15
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/ts/">#ts</a></span>
+    
+
+        <div class="post-content">
+            <h3 id="index-signature">Index Signature</h3>
+<p>The <code>[key: T]: U</code> is called an <strong>index signature</strong>, and is the way you tell TS that an object might contain more keys.</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">let </span><span style="color:#bf616a;">a</span><span>: {
+</span><span>  </span><span style="color:#bf616a;">b</span><span>: number
+</span><span>  </span><span style="color:#bf616a;">c</span><span>?: string
+</span><span>  [</span><span style="color:#bf616a;">key</span><span>: string]: boolean
+</span><span>}
+</span></code></pre>
+<h3 id="function-overloading">Function overloading</h3>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>SomeFunction = {
+</span><span>  (</span><span style="color:#bf616a;">from</span><span>: Date, </span><span style="color:#bf616a;">destination</span><span>: string): Reservation
+</span><span>  (</span><span style="color:#bf616a;">from</span><span>: Date, </span><span style="color:#bf616a;">to</span><span>: Date, </span><span style="color:#bf616a;">destination</span><span>: string): Reservation
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#8fa1b3;">reserve</span><span>: SomeFunction = (
+</span><span>  </span><span style="color:#bf616a;">from</span><span>: Date,
+</span><span>  </span><span style="color:#bf616a;">toOrDestination</span><span>: Date | string,
+</span><span>  </span><span style="color:#bf616a;">destination</span><span>?: string
+</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{ ... }
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>CreateElement = {
+</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: &#39;</span><span style="color:#a3be8c;">a</span><span>&#39;): HTMLAnchorElement
+</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: &#39;</span><span style="color:#a3be8c;">canvas</span><span>&#39;): HTMLCanvasElement
+</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: &#39;</span><span style="color:#a3be8c;">table</span><span>&#39;): HTMLTableElement
+</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: string): HTMLElement
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#8fa1b3;">createElement</span><span>: CreateElement = (</span><span style="color:#bf616a;">tag</span><span>: string): HTMLElement </span><span style="color:#b48ead;">=&gt; </span><span>{ ... }
+</span></code></pre>
+<span id="continue-reading"></span><h3 id="convert-an-enum-to-a-union-type">Convert an Enum to a Union Type</h3>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">enum </span><span>Test {
+</span><span>  </span><span style="color:#bf616a;">One </span><span>= &#39;</span><span style="color:#a3be8c;">one</span><span>&#39;,
+</span><span>  </span><span style="color:#bf616a;">Two </span><span>= &#39;</span><span style="color:#a3be8c;">two</span><span>&#39;,
+</span><span>  </span><span style="color:#bf616a;">Three </span><span>= &#39;</span><span style="color:#a3be8c;">three</span><span>&#39;,
+</span><span>}
+</span><span>
+</span><span style="color:#65737e;">// type TestValues = &#39;one&#39; | &#39;two&#39; | &#39;three&#39;
+</span><span style="color:#b48ead;">type </span><span>TestValues = `</span><span style="color:#a3be8c;">${</span><span style="color:#bf616a;">Test</span><span style="color:#a3be8c;">}</span><span>`
+</span><span>
+</span><span style="color:#65737e;">// type TestKeys = &#39;One&#39; | &#39;Two&#39; | &#39;Three&#39;
+</span><span style="color:#b48ead;">type </span><span>TestKeys = keyof typeof Test
+</span></code></pre>
+
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h">More Posts</span>
+                    <hr />
+                </div>
+                <div class="pagination__buttons">
+                        <span class="button previous">
+                            <a href="https://averted.github.io/notes/network-common/">
+                                <span class="button__icon">←</span>&nbsp;
+                                <span class="button__text">Network common</span>
+                            </a>
+                        </span>
+                    
+                    
+                        <span class="button next">
+                            <a href="https://averted.github.io/notes/ts-generics/">
+                                <span class="button__text">TS Generics</span>&nbsp;
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    </div>
+            </div>
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user"><span/></div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
