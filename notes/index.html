@@ -67,6 +67,37 @@
         <div class="posts">
                 <div class="post on-list">
                     
+    <h1 class="post-title"><a href="https://averted.github.io/notes/merge-a-public-pr-into-your-fork/">Merge a public PR into your fork</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2025-01-17
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/git/">#git</a></span>
+    
+
+
+                    <div class="post-content">
+            <p>Merge a public pull request into your own fork:</p>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">~/your-fork</span><span> $ git remote add pr-source https://github.com/&lt;user-providing-pull-request&gt;/&lt;repo-name&gt;
+</span><span>
+</span><span style="color:#bf616a;">~/your-fork</span><span> $ git fetch pr-source
+</span><span>
+</span><span style="color:#bf616a;">~/your-fork</span><span> $ git merge pr-source/&lt;pull-request-branch-name&gt;
+</span></code></pre>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
     <h1 class="post-title"><a href="https://averted.github.io/notes/dom-quert-params/">DOM Query Params (URLSearchParams)</a></h1>
     <div class="post-meta-inline">
         
@@ -219,68 +250,6 @@ Because we declared <T> as part of call signature, TS will bind a concrete type 
         <div>
             <!-- &#xFE0E; -- force text style - some devices render this as emoji -->
             <a class="read-more button" href="https://averted.github.io/notes/ts-generics/">
-                <span class="button__text">Read more</span>&nbsp;
-                <span class="button__icon">&#8617;&#xFE0E;</span>
-            </a>
-        </div>
-    
-
-                </div>
-            
-                <div class="post on-list">
-                    
-    <h1 class="post-title"><a href="https://averted.github.io/notes/ts-common/">TS Common</a></h1>
-    <div class="post-meta-inline">
-        
-    <span class="post-date">
-            2018-07-15
-        </span>
-
-    </div>
-
-    
-        <span class="post-tags-inline">
-                :: tags:&nbsp;
-                <a class="post-tag" href="https://averted.github.io/notes/tags/ts/">#ts</a></span>
-    
-
-
-                    
-        <div class="post-content">
-            <h3 id="index-signature">Index Signature</h3>
-<p>The <code>[key: T]: U</code> is called an <strong>index signature</strong>, and is the way you tell TS that an object might contain more keys.</p>
-<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">let </span><span style="color:#bf616a;">a</span><span>: {
-</span><span>  </span><span style="color:#bf616a;">b</span><span>: number
-</span><span>  </span><span style="color:#bf616a;">c</span><span>?: string
-</span><span>  [</span><span style="color:#bf616a;">key</span><span>: string]: boolean
-</span><span>}
-</span></code></pre>
-<h3 id="function-overloading">Function overloading</h3>
-<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>SomeFunction = {
-</span><span>  (</span><span style="color:#bf616a;">from</span><span>: Date, </span><span style="color:#bf616a;">destination</span><span>: string): Reservation
-</span><span>  (</span><span style="color:#bf616a;">from</span><span>: Date, </span><span style="color:#bf616a;">to</span><span>: Date, </span><span style="color:#bf616a;">destination</span><span>: string): Reservation
-</span><span>}
-</span><span>
-</span><span style="color:#b48ead;">let </span><span style="color:#8fa1b3;">reserve</span><span>: SomeFunction = (
-</span><span>  </span><span style="color:#bf616a;">from</span><span>: Date,
-</span><span>  </span><span style="color:#bf616a;">toOrDestination</span><span>: Date | string,
-</span><span>  </span><span style="color:#bf616a;">destination</span><span>?: string
-</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{ ... }
-</span><span>
-</span><span style="color:#b48ead;">type </span><span>CreateElement = {
-</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: &#39;</span><span style="color:#a3be8c;">a</span><span>&#39;): HTMLAnchorElement
-</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: &#39;</span><span style="color:#a3be8c;">canvas</span><span>&#39;): HTMLCanvasElement
-</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: &#39;</span><span style="color:#a3be8c;">table</span><span>&#39;): HTMLTableElement
-</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: string): HTMLElement
-</span><span>}
-</span><span>
-</span><span style="color:#b48ead;">let </span><span style="color:#8fa1b3;">createElement</span><span>: CreateElement = (</span><span style="color:#bf616a;">tag</span><span>: string): HTMLElement </span><span style="color:#b48ead;">=&gt; </span><span>{ ... }
-</span></code></pre>
-
-        </div>
-        <div>
-            <!-- &#xFE0E; -- force text style - some devices render this as emoji -->
-            <a class="read-more button" href="https://averted.github.io/notes/ts-common/">
                 <span class="button__text">Read more</span>&nbsp;
                 <span class="button__icon">&#8617;&#xFE0E;</span>
             </a>

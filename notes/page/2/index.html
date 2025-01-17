@@ -67,6 +67,68 @@
         <div class="posts">
                 <div class="post on-list">
                     
+    <h1 class="post-title"><a href="https://averted.github.io/notes/ts-common/">TS Common</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2018-07-15
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://averted.github.io/notes/tags/ts/">#ts</a></span>
+    
+
+
+                    
+        <div class="post-content">
+            <h3 id="index-signature">Index Signature</h3>
+<p>The <code>[key: T]: U</code> is called an <strong>index signature</strong>, and is the way you tell TS that an object might contain more keys.</p>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">let </span><span style="color:#bf616a;">a</span><span>: {
+</span><span>  </span><span style="color:#bf616a;">b</span><span>: number
+</span><span>  </span><span style="color:#bf616a;">c</span><span>?: string
+</span><span>  [</span><span style="color:#bf616a;">key</span><span>: string]: boolean
+</span><span>}
+</span></code></pre>
+<h3 id="function-overloading">Function overloading</h3>
+<pre data-lang="ts" style="background-color:#2b303b;color:#c0c5ce;" class="language-ts "><code class="language-ts" data-lang="ts"><span style="color:#b48ead;">type </span><span>SomeFunction = {
+</span><span>  (</span><span style="color:#bf616a;">from</span><span>: Date, </span><span style="color:#bf616a;">destination</span><span>: string): Reservation
+</span><span>  (</span><span style="color:#bf616a;">from</span><span>: Date, </span><span style="color:#bf616a;">to</span><span>: Date, </span><span style="color:#bf616a;">destination</span><span>: string): Reservation
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#8fa1b3;">reserve</span><span>: SomeFunction = (
+</span><span>  </span><span style="color:#bf616a;">from</span><span>: Date,
+</span><span>  </span><span style="color:#bf616a;">toOrDestination</span><span>: Date | string,
+</span><span>  </span><span style="color:#bf616a;">destination</span><span>?: string
+</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{ ... }
+</span><span>
+</span><span style="color:#b48ead;">type </span><span>CreateElement = {
+</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: &#39;</span><span style="color:#a3be8c;">a</span><span>&#39;): HTMLAnchorElement
+</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: &#39;</span><span style="color:#a3be8c;">canvas</span><span>&#39;): HTMLCanvasElement
+</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: &#39;</span><span style="color:#a3be8c;">table</span><span>&#39;): HTMLTableElement
+</span><span>  (</span><span style="color:#bf616a;">tag</span><span>: string): HTMLElement
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#8fa1b3;">createElement</span><span>: CreateElement = (</span><span style="color:#bf616a;">tag</span><span>: string): HTMLElement </span><span style="color:#b48ead;">=&gt; </span><span>{ ... }
+</span></code></pre>
+
+        </div>
+        <div>
+            <!-- &#xFE0E; -- force text style - some devices render this as emoji -->
+            <a class="read-more button" href="https://averted.github.io/notes/ts-common/">
+                <span class="button__text">Read more</span>&nbsp;
+                <span class="button__icon">&#8617;&#xFE0E;</span>
+            </a>
+        </div>
+    
+
+                </div>
+            
+                <div class="post on-list">
+                    
     <h1 class="post-title"><a href="https://averted.github.io/notes/network-common/">Network common</a></h1>
     <div class="post-meta-inline">
         
@@ -243,47 +305,6 @@ Every JS Function is a first-class citizen, and Classes are as well (can be pass
         <div>
             <!-- &#xFE0E; -- force text style - some devices render this as emoji -->
             <a class="read-more button" href="https://averted.github.io/notes/js-classes/">
-                <span class="button__text">Read more</span>&nbsp;
-                <span class="button__icon">&#8617;&#xFE0E;</span>
-            </a>
-        </div>
-    
-
-                </div>
-            
-                <div class="post on-list">
-                    
-    <h1 class="post-title"><a href="https://averted.github.io/notes/vim-buffers/">Vim Buffers</a></h1>
-    <div class="post-meta-inline">
-        
-    <span class="post-date">
-            2016-11-06
-        </span>
-
-    </div>
-
-    
-        <span class="post-tags-inline">
-                :: tags:&nbsp;
-                <a class="post-tag" href="https://averted.github.io/notes/tags/vim/">#vim</a></span>
-    
-
-
-                    
-        <div class="post-content">
-            <h3 id="navigation">Navigation</h3>
-<p>Navigate through buffers:</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>:next | :n | ]]
-</span><span>:prev | :p | [[
-</span></code></pre>
-<h3 id="open-all-files-returned-from-grep">Open all files returned from <code>grep</code></h3>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>vim $(grep -lri &#39;pattern&#39; .)
-</span></code></pre>
-
-        </div>
-        <div>
-            <!-- &#xFE0E; -- force text style - some devices render this as emoji -->
-            <a class="read-more button" href="https://averted.github.io/notes/vim-buffers/">
                 <span class="button__text">Read more</span>&nbsp;
                 <span class="button__icon">&#8617;&#xFE0E;</span>
             </a>
